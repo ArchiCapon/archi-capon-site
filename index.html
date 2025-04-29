@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
         body {
             font-family: 'Roboto', sans-serif;
@@ -19,10 +20,76 @@
             overflow-x: hidden;
             position: relative;
         }
+        body.light-theme {
+            background: linear-gradient(135deg, #f0f0ff 0%, #e6e6ff 100%);
+            color: #1a0033;
+        }
         .container {
             display: flex;
             min-height: 100vh;
             position: relative;
+        }
+        /* Переключатель темы */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #c71585, #4b0082);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(199, 21, 133, 0.5);
+            transition: background 0.5s ease;
+            z-index: 1000;
+        }
+        .theme-toggle.light {
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .theme-icon {
+            font-size: 24px;
+            color: #e0e0ff;
+            animation: moonToSun 0.5s forwards;
+        }
+        .theme-toggle.light .theme-icon {
+            animation: sunToMoon 0.5s forwards;
+        }
+        @keyframes moonToSun {
+            0% {
+                content: "🌙";
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(90deg);
+                opacity: 0;
+            }
+            100% {
+                content: "☀️";
+                transform: rotate(0deg);
+                opacity: 1;
+                color: #1a0033;
+            }
+        }
+        @keyframes sunToMoon {
+            0% {
+                content: "☀️";
+                transform: rotate(0deg);
+                color: #1a0033;
+            }
+            50% {
+                transform: rotate(90deg);
+                opacity: 0;
+            }
+            100% {
+                content: "🌙";
+                transform: rotate(0deg);
+                opacity: 1;
+                color: #e0e0ff;
+            }
         }
         /* Боковое меню на ПК */
         .sidebar {
@@ -35,6 +102,11 @@
             box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
             transition: transform 0.3s ease;
         }
+        body.light-theme .sidebar {
+            background: rgba(255, 255, 255, 0.9);
+            border-right: 2px solid #ff8c00;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+        }
         .sidebar h1 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8em;
@@ -42,6 +114,10 @@
             text-align: center;
             margin-bottom: 30px;
             text-shadow: 0 0 10px #00ffcc;
+        }
+        body.light-theme .sidebar h1 {
+            color: #ff8c00;
+            text-shadow: 0 0 10px #ff8c00;
         }
         .sidebar nav ul {
             list-style: none;
@@ -58,10 +134,17 @@
             border-radius: 5px;
             transition: background 0.3s, transform 0.3s;
         }
+        body.light-theme .sidebar nav ul li a {
+            color: #1a0033;
+        }
         .sidebar nav ul li a:hover {
             background: #ff00ff;
             transform: translateX(10px);
             box-shadow: 0 0 10px #ff00ff;
+        }
+        body.light-theme .sidebar nav ul li a:hover {
+            background: #ff8c00;
+            box-shadow: 0 0 10px #ff8c00;
         }
         /* Основной контент */
         .main-content {
@@ -83,9 +166,17 @@
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
             transition: transform 0.3s, box-shadow 0.3s;
         }
+        body.light-theme .section {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ff8c00;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+        }
         .section:hover {
             transform: translateY(-10px);
             box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
+        }
+        body.light-theme .section:hover {
+            box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
         }
         .section h2 {
             font-family: 'Orbitron', sans-serif;
@@ -94,10 +185,17 @@
             margin-bottom: 15px;
             text-shadow: 0 0 10px #ff00ff;
         }
+        body.light-theme .section h2 {
+            color: #ff8c00;
+            text-shadow: 0 0 10px #ff8c00;
+        }
         .section p {
             font-size: 1em;
             line-height: 1.6;
             color: #e0e0ff;
+        }
+        body.light-theme .section p {
+            color: #1a0033;
         }
         /* Заглушка для изображений */
         .placeholder-img {
@@ -113,6 +211,11 @@
             color: #e0e0ff;
             font-size: 0.9em;
             text-align: center;
+        }
+        body.light-theme .placeholder-img {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid #ff8c00;
+            color: #1a0033;
         }
         /* Карусель */
         .carousel {
@@ -141,8 +244,15 @@
             font-size: 1.2em;
             transition: background 0.3s;
         }
+        body.light-theme .carousel-btn {
+            background: rgba(0, 0, 0, 0.3);
+            color: #ff8c00;
+        }
         .carousel-btn:hover {
             background: rgba(0, 0, 0, 0.8);
+        }
+        body.light-theme .carousel-btn:hover {
+            background: rgba(0, 0, 0, 0.5);
         }
         .carousel-btn.prev { left: 5px; }
         .carousel-btn.next { right: 5px; }
@@ -154,6 +264,9 @@
             border-radius: 5px;
             background: rgba(0, 0, 0, 0.5);
         }
+        body.light-theme .contact-form iframe {
+            background: rgba(0, 0, 0, 0.1);
+        }
         .social-links a {
             color: #00ffcc;
             text-decoration: none;
@@ -161,9 +274,16 @@
             font-size: 1em;
             transition: color 0.3s;
         }
+        body.light-theme .social-links a {
+            color: #ff8c00;
+        }
         .social-links a:hover {
             color: #ff00ff;
             text-shadow: 0 0 10px #ff00ff;
+        }
+        body.light-theme .social-links a:hover {
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
         }
         /* Кнопка скачивания */
         .download-btn {
@@ -177,9 +297,16 @@
             margin: 10px 0;
             transition: background 0.3s, transform 0.3s;
         }
+        body.light-theme .download-btn {
+            background: #ff8c00;
+            color: #1a0033;
+        }
         .download-btn:hover {
             background: #00ffcc;
             transform: scale(1.05);
+        }
+        body.light-theme .download-btn:hover {
+            background: #ffd700;
         }
         /* Модальное окно */
         .modal {
@@ -194,6 +321,9 @@
             justify-content: center;
             align-items: center;
         }
+        body.light-theme .modal {
+            background: rgba(255, 255, 255, 0.9);
+        }
         .modal-content {
             background: rgba(20, 0, 50, 0.9);
             padding: 20px;
@@ -205,6 +335,11 @@
             box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
             animation: pop 0.5s ease-in-out;
         }
+        body.light-theme .modal-content {
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ff8c00;
+            box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+        }
         @keyframes pop {
             0% { transform: scale(0.5); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
@@ -215,9 +350,16 @@
             margin-top: 0;
             text-shadow: 0 0 10px #00ffcc;
         }
+        body.light-theme .modal-content h2 {
+            color: #ff8c00;
+            text-shadow: 0 0 10px #ff8c00;
+        }
         .modal-content p {
             color: #e0e0ff;
             line-height: 1.6;
+        }
+        body.light-theme .modal-content p {
+            color: #1a0033;
         }
         .modal-content .close-btn, .modal-content .join-btn {
             background: #ff00ff;
@@ -229,12 +371,24 @@
             margin: 10px;
             transition: background 0.3s;
         }
+        body.light-theme .modal-content .close-btn,
+        body.light-theme .modal-content .join-btn {
+            background: #ff8c00;
+            color: #1a0033;
+        }
         .modal-content .join-btn {
             background: #00ffcc;
             color: #0a0a23;
         }
+        body.light-theme .modal-content .join-btn {
+            background: #ffd700;
+        }
         .modal-content .close-btn:hover, .modal-content .join-btn:hover {
             background: #ff66ff;
+        }
+        body.light-theme .modal-content .close-btn:hover,
+        body.light-theme .modal-content .join-btn:hover {
+            background: #ffd700;
         }
         /* Анимации для текста */
         .highlight {
@@ -243,6 +397,10 @@
             border-radius: 5px;
             margin: 10px 0;
             border: 1px solid #00ffcc;
+        }
+        body.light-theme .highlight {
+            background: rgba(255, 140, 0, 0.1);
+            border: 1px solid #ff8c00;
         }
         .highlight ul {
             list-style: none;
@@ -259,6 +417,9 @@
             left: 0;
             color: #ff00ff;
         }
+        body.light-theme .highlight li::before {
+            color: #ff8c00;
+        }
         /* Футер */
         footer {
             background: rgba(10, 0, 30, 0.9);
@@ -269,13 +430,25 @@
             margin-top: 20px;
             position: relative;
         }
+        body.light-theme footer {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1a0033;
+            border-top: 2px solid #ff8c00;
+        }
         footer a {
             color: #ff00ff;
             text-decoration: none;
         }
+        body.light-theme footer a {
+            color: #ff8c00;
+        }
         footer a:hover {
             color: #00ffcc;
             text-shadow: 0 0 10px #00ffcc;
+        }
+        body.light-theme footer a:hover {
+            color: #ffd700;
+            text-shadow: 0 0 10px #ffd700;
         }
         /* Пространство для рекламы */
         .ad-space {
@@ -289,12 +462,21 @@
             text-align: center;
             box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
         }
+        body.light-theme .ad-space {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ff8c00;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+        }
         .ad-space h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.5em;
             color: #00ffcc;
             margin-bottom: 15px;
             text-shadow: 0 0 10px #00ffcc;
+        }
+        body.light-theme .ad-space h2 {
+            color: #ff8c00;
+            text-shadow: 0 0 10px #ff8c00;
         }
         .ad-space .placeholder-ad {
             width: 100%;
@@ -308,6 +490,11 @@
             color: #e0e0ff;
             font-size: 1em;
         }
+        body.light-theme .ad-space .placeholder-ad {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid #ff8c00;
+            color: #1a0033;
+        }
         /* Неоновые эффекты */
         .neon-text {
             animation: neon 2s infinite alternate;
@@ -315,6 +502,13 @@
         @keyframes neon {
             0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff; }
             100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+        }
+        body.light-theme .neon-text {
+            animation: neon-light 2s infinite alternate;
+        }
+        @keyframes neon-light {
+            0% { text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00; }
+            100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; }
         }
         /* Адаптивный дизайн для мобильных */
         @media (max-width: 768px) {
@@ -328,6 +522,9 @@
                 border-right: none;
                 border-bottom: 2px solid #ff00ff;
                 transform: none;
+            }
+            body.light-theme .sidebar {
+                border-bottom: 2px solid #ff8c00;
             }
             .sidebar nav ul {
                 display: flex;
@@ -374,6 +571,12 @@
             .ad-space {
                 width: 90%;
             }
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                width: 35px;
+                height: 35px;
+            }
         }
         /* Дополнительные анимации */
         .fade-in {
@@ -403,12 +606,18 @@
             z-index: -1;
             opacity: 0.5;
         }
+        body.light-theme .section::before {
+            background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
+        }
         /* Декоративные линии */
         .divider {
             width: 100%;
             height: 2px;
             background: linear-gradient(to right, transparent, #00ffcc, transparent);
             margin: 20px 0;
+        }
+        body.light-theme .divider {
+            background: linear-gradient(to right, transparent, #ff8c00, transparent);
         }
         /* Анимация для кнопок */
         .btn-glow {
@@ -425,6 +634,9 @@
             background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.3), transparent);
             animation: shine 3s infinite;
         }
+        body.light-theme .btn-glow::after {
+            background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.3), transparent);
+        }
         @keyframes shine {
             0% { left: -100%; }
             50% { left: 100%; }
@@ -439,6 +651,10 @@
             background: #ff00ff;
             margin: 5px auto 0;
             box-shadow: 0 0 10px #ff00ff;
+        }
+        body.light-theme h2::after {
+            background: #ff8c00;
+            box-shadow: 0 0 10px #ff8c00;
         }
         /* Эффект парящих частиц */
         .particles {
@@ -459,6 +675,9 @@
             animation: drift 10s infinite;
             opacity: 0.5;
         }
+        body.light-theme .particle {
+            background: #ff8c00;
+        }
         .particle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
         .particle:nth-child(2) { top: 20%; left: 30%; animation-delay: 1s; }
         .particle:nth-child(3) { top: 30%; left: 45%; animation-delay: 2s; }
@@ -472,6 +691,11 @@
     </style>
 </head>
 <body>
+    <!-- Переключатель темы -->
+    <div class="theme-toggle" onclick="toggleTheme()">
+        <span class="theme-icon">🌙</span>
+    </div>
+
     <!-- Модальное окно -->
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
@@ -497,124 +721,3 @@
             <h1 class="neon-text">GUSEN DUCK IS</h1>
             <nav>
                 <ul>
-                    <li><a href="#bio">Кто я</a></li>
-                    <li><a href="#story">История</a></li>
-                    <li><a href="#project">Проект</a></li>
-                    <li><a href="#plans">Планы</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-
-        <!-- Основной контент -->
-        <div class="main-content">
-            <div class="section fade-in" id="bio">
-                <h2>Кто я такой?</h2>
-                <a href="https://twitch.tv/twilight_parrot">
-                    <div class="placeholder-img">Image Placeholder</div>
-                </a>
-                <p>Я — Archi Capon, мастер цифровых миров и создатель <strong>GUSEN DUCK IS</strong>. Раньше я был известен как twilight_parrot, покоряя Twitch своими стримами. Теперь я визионер, соединяющий веселье и криптовалюту в одной игре!</p>
-                <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
-            </div>
-
-            <div class="section fade-in" id="story">
-                <h2>Наша история</h2>
-                <a href="https://x.com/ArchiCapon">
-                    <div class="placeholder-img">Image Placeholder</div>
-                </a>
-                <p>Всё началось с мечты создать игру, которая перевернёт мир. Я, Archi Capon, объединил силы с единомышленниками, чтобы воплотить идею <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывай криптовалюту.</p>
-                <p>Мы создали прототип, который стал началом утиной революции. Этот сайт — наша презентация проекта. Мы хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашему движению. Вместе мы создаём будущее, где веселье и технологии идут рука об руку!</p>
-            </div>
-
-            <div class="section fade-in" id="project">
-                <h2>GUSEN DUCK IS</h2>
-                <div class="carousel">
-                    <div class="carousel-images" id="carouselImages">
-                        <div class="placeholder-img">Image Placeholder</div>
-                        <div class="placeholder-img">Image Placeholder</div>
-                        <div class="placeholder-img">Image Placeholder</div>
-                    </div>
-                    <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-                    <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
-                </div>
-                <p><strong>GUSEN DUCK IS</strong> — это революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте.</p>
-                <div class="highlight">
-                    <p><strong>Почему это круто:</strong></p>
-                    <ul>
-                        <li>Тапай уток, избегай голубей — копи монеты!</li>
-                        <li>Зови друзей и получай 5% от их активности.</li>
-                        <li>Лидерборд для утиных королей.</li>
-                        <li>Баннеры с нашими проектами.</li>
-                    </ul>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=com.gusenduckis" class="download-btn btn-glow">Скачать игру (скоро!)</a>
-            </div>
-
-            <div class="section fade-in" id="plans">
-                <h2>Наши планы</h2>
-                <a href="#contact">
-                    <div class="placeholder-img">Image Placeholder</div>
-                </a>
-                <p>Мы не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга.</p>
-                <p>В планах: запуск на Google Play и App Store, новые уровни с боссами-голубями, интеграция NFT-уток и создание утиного сообщества. Следи за обновлениями и стань частью утиной империи!</p>
-            </div>
-
-            <div class="section fade-in" id="contact">
-                <h2>Связаться</h2>
-                <p>Хочешь говорить про уток, крипту или идеи? Пиши!</p>
-                <div class="contact-form">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">
-                        Загрузка формы...
-                    </iframe>
-                </div>
-                <div class="social-links">
-                    <a href="https://t.me/archicapon">✈️ Telegram</a> |
-                    <a href="https://twitch.tv/twilight_parrot">🎮 Twitch</a> |
-                    <a href="https://x.com/ArchiCapon">🐦 X.com</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Пространство для рекламы -->
-    <section class="ad-space">
-        <h2>Реклама</h2>
-        <div class="placeholder-ad">Ad Placeholder</div>
-    </section>
-
-    <footer>
-        <p>© 2025 Archi Capon. Создано с утиной страстью 🦆 | <a href="#manifest">Утиный манифест</a></p>
-    </footer>
-
-    <script>
-        // Показ модального окна
-        window.onload = function() {
-            document.getElementById('welcomeModal').style.display = 'flex';
-        };
-
-        // Карусель
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-images .placeholder-img');
-        const totalSlides = slides.length;
-
-        function moveCarousel(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            const offset = -currentSlide * 100;
-            document.getElementById('carouselImages').style.transform = `translateX(${offset}%)`;
-        }
-
-        // Плавный скролл к секциям
-        document.querySelectorAll('.sidebar a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                window.scrollTo({
-                    top: targetElement.offsetTop - 50,
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
