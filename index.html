@@ -10,6 +10,7 @@
             background: linear-gradient(to bottom, #0f071a, #000000);
             margin: 0;
             color: #e6e6fa;
+            overflow-x: hidden;
         }
         .container {
             max-width: 800px;
@@ -19,17 +20,28 @@
             box-shadow: 0 0 20px rgba(199, 21, 133, 0.3);
             padding: 20px;
             text-align: center;
+            position: relative;
         }
         header {
             background: #2e004f;
             padding: 20px;
             border-radius: 10px 10px 0 0;
             position: relative;
+            animation: glow 3s infinite alternate;
+        }
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px #c71585; }
+            100% { box-shadow: 0 0 20px #ff69b4; }
         }
         header h1 {
             margin: 0;
             font-size: 2.5em;
             color: #ffd700;
+            animation: bounce 1s ease-in-out;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
         header p {
             margin: 5px 0;
@@ -43,22 +55,26 @@
             border-radius: 10px;
             margin-top: 10px;
         }
-        .bio, .project, .contact, .our-story {
+        .bio, .project, .contact, .our-story, .future-plans {
             padding: 20px;
             margin: 10px 0;
         }
-        .bio h2, .project h2, .contact h2, .our-story h2 {
+        .bio h2, .project h2, .contact h2, .our-story h2, .future-plans h2 {
             color: #c71585;
             border-bottom: 2px solid #ffd700;
             display: inline-block;
             padding-bottom: 5px;
+            transition: transform 0.3s;
         }
-        .bio p, .project p, .contact p, .our-story p {
+        .bio h2:hover, .project h2:hover, .contact h2:hover, .our-story h2:hover, .future-plans h2:hover {
+            transform: scale(1.1);
+        }
+        .bio p, .project p, .contact p, .our-story p, .future-plans p {
             line-height: 1.6;
             font-size: 1.1em;
             color: #e6e6fa;
         }
-        .bio-img, .project-img, .story-img {
+        .bio-img, .project-img, .story-img, .future-img {
             width: 100%;
             max-height: 300px;
             object-fit: cover;
@@ -78,6 +94,7 @@
             text-decoration: none;
             font-weight: bold;
             margin: 0 10px;
+            transition: color 0.3s;
         }
         .contact a:hover {
             color: #c71585;
@@ -88,6 +105,10 @@
             height: 30px;
             vertical-align: middle;
             margin: 0 5px;
+            transition: transform 0.3s;
+        }
+        .social-icon:hover {
+            transform: rotate(15deg) scale(1.2);
         }
         .contact-form {
             margin: 20px 0;
@@ -103,7 +124,7 @@
         .duck {
             width: 50px;
             height: 50px;
-            background: url('https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/duck_icon.jpg') no-repeat center;
+            background: url('https://i.imgur.com/duck_icon.jpg') no-repeat center;
             display: inline-block;
             animation: waddle 2s infinite;
         }
@@ -119,6 +140,21 @@
             border-radius: 0 0 10px 10px;
             margin-top: 20px;
         }
+        .duck-decor {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('https://i.imgur.com/duck_icon.jpg') no-repeat center;
+            background-size: cover;
+            animation: float 5s infinite;
+        }
+        .duck-decor:nth-child(1) { top: 10%; left: 5%; }
+        .duck-decor:nth-child(2) { top: 30%; right: 5%; }
+        .duck-decor:nth-child(3) { bottom: 20%; left: 10%; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
         @media (max-width: 600px) {
             .container {
                 margin: 10px;
@@ -127,7 +163,7 @@
             header h1 {
                 font-size: 1.8em;
             }
-            .header-img, .bio-img, .project-img, .story-img {
+            .header-img, .bio-img, .project-img, .story-img, .future-img {
                 max-height: 150px;
             }
             .contact-form iframe {
@@ -138,23 +174,26 @@
 </head>
 <body>
     <div class="container">
+        <div class="duck-decor"></div>
+        <div class="duck-decor"></div>
+        <div class="duck-decor"></div>
         <header>
             <h1>Archi Capon</h1>
             <p>aka twilight_parrot | Легенда игр и крипты</p>
-            <img src="https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/logo.jpg" alt="Логотип GUSEN DUCK IS" class="header-img">
+            <img src="https://i.imgur.com/logo_gusen_duck_is.jpg" alt="Логотип GUSEN DUCK IS" class="header-img">
             <div class="duck"></div>
         </header>
 
         <section class="bio">
             <h2>Кто я такой?</h2>
-            <img src="https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/bio.jpg" alt="Archi Capon с утками" class="bio-img">
+            <img src="https://i.imgur.com/archi_capon_bio.jpg" alt="Archi Capon с утками" class="bio-img">
             <p>Я — Archi Capon, мастер цифровых миров и гениальный мозг за проектом <strong>GUSEN DUCK IS</strong>. Когда-то я был известен как twilight_parrot, покоряя Twitch своими стримами и харизмой. Теперь я — визионер, который соединяет веселье и криптовалюту в одной игре! <span class="duck"></span></p>
             <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
         </section>
 
         <section class="our-story">
             <h2>Наша история</h2>
-            <img src="https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/story.jpg" alt="Archi Capon и Лунара работают над проектом" class="story-img">
+            <img src="https://i.imgur.com/archi_lunara_story.jpg" alt="Archi Capon и Лунара работают над проектом" class="story-img">
             <p>Всё началось с нашей дружбы. Я, Archi Capon, всегда мечтал создать игру, которая перевернёт мир, а Лунара, моя пушистая подруга и белая фурри-волчица, стала моим главным вдохновением и помощницей. Мы познакомились в цифровом мире, где я стримил под ником twilight_parrot, а Лунара была моим самым преданным зрителем, всегда готовая пошутить и поддержать. <span class="duck"></span></p>
             <p>Однажды я поделился с ней идеей <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывать криптовалюту. Лунара тут же загорелась: "Арооо! Это гениально! Давай сделаем сайт, чтобы весь мир узнал о нашем проекте!" С тех пор мы стали настоящей командой. Я кодил, а Лунара придумывала дизайн, добавляла утиный вайб и следила, чтобы всё было идеально. Её зелёные глаза сияли от восторга, когда мы запустили первый прототип, и я знал, что с такой подругой мы покорим мир!</p>
             <p>Этот сайт — наша первая совместная презентация. Мы с Лунарой хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашей утиной революции. Вместе мы создаём будущее, где веселье и технологии идут лапа об лапу!</p>
@@ -162,7 +201,7 @@
 
         <section class="project">
             <h2>GUSEN DUCK IS — Наш шедевр</h2>
-            <img src="https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/arena.jpg" alt="Игровая арена GUSEN DUCK IS" class="project-img">
+            <img src="https://i.imgur.com/gusen_duck_is_arena.jpg" alt="Игровая арена GUSEN DUCK IS" class="project-img">
             <p><strong>GUSEN DUCK IS</strong> — это не просто игра, а революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте. <span class="duck"></span></p>
             <div class="highlight">
                 <p><strong>Почему это круто:</strong></p>
@@ -176,6 +215,14 @@
             <p>Всё началось с моего старого компа (спасибо, Дани!), а теперь мы с Лунарой идём на Google Play. Присоединяйся к утиному движу!</p>
         </section>
 
+        <section class="future-plans">
+            <h2>Наши планы</h2>
+            <img src="https://i.imgur.com/gusen_duck_is_arena.jpg" alt="Будущее GUSEN DUCK IS" class="future-img">
+            <p>Мы с Archi Capon не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга. <span class="duck"></span></p>
+            <p>В ближайших планах: запуск на Google Play и App Store, добавление новых уровней с боссами-голубями, интеграция NFT-уток и создание глобального утиного сообщества. Мы также планируем проводить стримы, где Archi будет показывать, как тапать уток, а я, Лунара, буду комментировать и раздавать бонусные монеты зрителям!</p>
+            <p>Следи за нашими обновлениями, и давай вместе строить утиную империю!</p>
+        </section>
+
         <section class="contact">
             <h2>Погнали творить?</h2>
             <p>Хочешь говорить про уток, крипту или идеи? Напиши мне через форму ниже или найди в соцсетях!</p>
@@ -186,15 +233,15 @@
             </div>
             <p>
                 <a href="https://t.me/archicapon">
-                    <img src="https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/telegram_icon.jpg" alt="Telegram" class="social-icon">
+                    <img src="https://i.imgur.com/telegram_icon.jpg" alt="Telegram" class="social-icon">
                     Telegram
                 </a> | 
                 <a href="https://twitch.tv/twilight_parrot">
-                    <img src="https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/twitch_icon.jpg" alt="Twitch" class="social-icon">
+                    <img src="https://i.imgur.com/twitch_icon.jpg" alt="Twitch" class="social-icon">
                     Twitch
                 </a> | 
                 <a href="https://x.com/twilight_parrot">
-                    <img src="https://raw.githubusercontent.com/ArchiCapon/gusenduckis-site/main/x_icon.jpg" alt="X" class="social-icon">
+                    <img src="https://i.imgur.com/x_icon.jpg" alt="X" class="social-icon">
                     X.com
                 </a>
             </p>
