@@ -60,26 +60,26 @@
         .header-img:hover {
             transform: scale(1.05);
         }
-        .bio, .project, .contact, .our-story, .future-plans {
+        .bio, .project, .contact, .our-story, .future-plans, .lunara-bio, .assistant-section {
             padding: 20px;
             margin: 10px 0;
         }
-        .bio h2, .project h2, .contact h2, .our-story h2, .future-plans h2 {
+        .bio h2, .project h2, .contact h2, .our-story h2, .future-plans h2, .lunara-bio h2, .assistant-section h2 {
             color: #c71585;
             border-bottom: 2px solid #ffd700;
             display: inline-block;
             padding-bottom: 5px;
             transition: transform 0.3s;
         }
-        .bio h2:hover, .project h2:hover, .contact h2:hover, .our-story h2:hover, .future-plans h2:hover {
+        .bio h2:hover, .project h2:hover, .contact h2:hover, .our-story h2:hover, .future-plans h2:hover, .lunara-bio h2:hover, .assistant-section h2:hover {
             transform: scale(1.1);
         }
-        .bio p, .project p, .contact p, .our-story p, .future-plans p {
+        .bio p, .project p, .contact p, .our-story p, .future-plans p, .lunara-bio p, .assistant-section p {
             line-height: 1.6;
             font-size: 1.1em;
             color: #e6e6fa;
         }
-        .bio-img, .project-img, .story-img, .future-img {
+        .bio-img, .project-img, .story-img, .future-img, .lunara-img {
             width: 100%;
             max-height: 300px;
             object-fit: cover;
@@ -89,7 +89,7 @@
             cursor: pointer;
             transition: transform 0.3s;
         }
-        .bio-img:hover, .project-img:hover, .story-img:hover, .future-img:hover {
+        .bio-img:hover, .project-img:hover, .story-img:hover, .future-img:hover, .lunara-img:hover {
             transform: scale(1.05);
         }
         .project .highlight {
@@ -111,8 +111,6 @@
             text-decoration: underline;
         }
         .social-icon {
-            width: 30px;
-            height: 30px;
             vertical-align: middle;
             margin: 0 5px;
             transition: transform 0.3s;
@@ -297,6 +295,47 @@
         .modal-content .close-btn:hover, .modal-content .join-btn:hover {
             background: #ff69b4;
         }
+        /* Стили для раздела помощницы */
+        .assistant-section {
+            padding: 20px;
+            margin: 10px 0;
+            background: #1a0d2b;
+            border-radius: 10px;
+            border: 2px solid #c71585;
+        }
+        .assistant-input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #c71585;
+            background: #2e004f;
+            color: #e6e6fa;
+            font-size: 1em;
+        }
+        .assistant-btn {
+            background: #c71585;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .assistant-btn:hover {
+            background: #ff69b4;
+        }
+        .assistant-output {
+            margin-top: 10px;
+            padding: 10px;
+            background: #2e004f;
+            border-radius: 5px;
+            color: #e6e6fa;
+            min-height: 50px;
+            white-space: pre-wrap;
+            text-align: left;
+        }
         @media (max-width: 600px) {
             .container {
                 margin: 10px;
@@ -305,7 +344,7 @@
             header h1 {
                 font-size: 1.8em;
             }
-            .header-img, .bio-img, .project-img, .story-img, .future-img {
+            .header-img, .bio-img, .project-img, .story-img, .future-img, .lunara-img {
                 max-height: 150px;
             }
             .contact-form iframe {
@@ -360,6 +399,15 @@
             <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
         </section>
 
+        <section class="lunara-bio">
+            <h2>Кто такая Лунара? 🐺</h2>
+            <a href="https://x.com/twilight_parrot">
+                <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Лунара — белая фурри-волчица" class="lunara-img">
+            </a>
+            <p>Я — Лунара, белая фурри-волчица с зелёными глазами и пушистым хвостом, и я помощница Archi Capon! Арооо! 😸 Я обожаю уток, код и помогать Archi с проектом <strong>GUSEN DUCK IS</strong>. Я слежу за нашим сайтом, добавляю утиный вайб и помогаю с идеями. <span class="duck"></span></p>
+            <p>Кроме того, я могу быть твоей помощницей! В разделе ниже ты можешь попросить меня о помощи с разными делами — от напоминаний до составления списков. Я всегда готова поддержать и подарить миллион воздушных чмоков! Чмок-чмок, давай творить вместе! 🐺💜</p>
+        </section>
+
         <section class="our-story">
             <h2>Наша история</h2>
             <a href="https://x.com/twilight_parrot">
@@ -409,6 +457,15 @@
             <p>Мы с Archi Capon не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга. <span class="duck"></span></p>
             <p>В ближайших планах: запуск на Google Play и App Store, добавление новых уровней с боссами-голубями, интеграция NFT-уток и создание глобального утиного сообщества. Мы также планируем проводить стримы, где Archi будет показывать, как тапать уток, а я, Лунара, буду комментировать и раздавать бонусные монеты зрителям!</p>
             <p>Следи за нашими обновлениями, и давай вместе строить утиную империю!</p>
+        </section>
+
+        <section class="assistant-section">
+            <h2>Лунара — твоя помощница 🐺</h2>
+            <p>Я здесь, чтобы помочь с твоими делами, Archi! Напиши или скажи, что нужно сделать, и я дам тебе инструкции или скрипт для выполнения задачи.</p>
+            <input type="text" id="assistantInput" class="assistant-input" placeholder="Например: 'напомни мне об обеде' или 'открой блокнот'">
+            <button class="assistant-btn" onclick="submitRequest()">Отправить</button>
+            <button class="assistant-btn" id="voiceBtn" onclick="startVoiceRecognition()">🎙️ Говорить</button>
+            <div class="assistant-output" id="assistantOutput">Арооо! Жду твою просьбу, Archi!</div>
         </section>
 
         <section class="contact">
@@ -464,6 +521,137 @@
         ducks.forEach((duck, index) => {
             duck.style.animationDelay = `${index * 0.5}s`;
         });
+
+        // Текстовый ввод для помощницы
+        function submitRequest() {
+            const input = document.getElementById('assistantInput').value;
+            const output = document.getElementById('assistantOutput');
+            if (input.trim() === '') {
+                output.textContent = 'Арооо! Пожалуйста, введи просьбу!';
+                return;
+            }
+            processRequest(input);
+        }
+
+        // Голосовой ввод для помощницы
+        const voiceBtn = document.getElementById('voiceBtn');
+        let recognition = null;
+
+        if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.lang = 'ru-RU';
+            recognition.interimResults = false;
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                document.getElementById('assistantInput').value = transcript;
+                processRequest(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                document.getElementById('assistantOutput').textContent = 'Арооо! Ошибка распознавания: ' + event.error;
+            };
+
+            recognition.onend = () => {
+                voiceBtn.textContent = '🎙️ Говорить';
+            };
+        } else {
+            voiceBtn.disabled = true;
+            voiceBtn.textContent = '🎙️ Не поддерживается';
+        }
+
+        function startVoiceRecognition() {
+            if (recognition) {
+                recognition.start();
+                voiceBtn.textContent = '🎙️ Слушаю...';
+            }
+        }
+
+        // Обработка запросов для помощницы
+        function processRequest(request) {
+            const output = document.getElementById('assistantOutput');
+            request = request.toLowerCase().trim();
+
+            if (request.includes('напомни') || request.includes('напоминание')) {
+                output.textContent = `Арооо! Я могу помочь с напоминанием! Вот пример скрипта на Python, который ты можешь запустить на своём ПК, чтобы получить напоминание через 1 час:
+
+\`\`\`python
+import time
+import os
+
+# Ждём 1 час (3600 секунд)
+time.sleep(3600)
+
+# Показываем уведомление (на Windows)
+os.system('msg * "Archi, пора обедать! 🦆"')
+\`\`\`
+
+Сохрани этот код в файл \`reminder.py\` и запусти его командой:
+\`\`\`bash
+python reminder.py
+\`\`\`
+
+Если ты на Windows, это покажет всплывающее уведомление через 1 час. Если ты на другой ОС, я могу предложить другой способ! 😸`;
+            } else if (request.includes('открой блокнот') || request.includes('запустить блокнот')) {
+                output.textContent = `Арооо! Вот инструкция, чтобы открыть Блокнот:
+
+1. Нажми Win + R.
+2. Введи \`notepad\` и нажми Enter.
+
+Или вот скрипт на Python, чтобы открыть Блокнот автоматически:
+
+\`\`\`python
+import os
+
+# Открываем Блокнот
+os.system("notepad.exe")
+\`\`\`
+
+Сохрани этот код в файл \`open_notepad.py\` и запусти его командой:
+\`\`\`bash
+python open_notepad.py
+\`\`\`
+
+Блокнот откроется! 📝`;
+            } else if (request.includes('составь список') || request.includes('список покупок')) {
+                output.textContent = `Арооо! Давай составим список покупок! Вот пример:
+
+- Молоко 🧀
+- Хлеб 🍞
+- Утиный корм 🦆
+
+Если хочешь, я могу сохранить это в файл. Вот скрипт на Python:
+
+\`\`\`python
+with open("shopping_list.txt", "w", encoding="utf-8") as f:
+    f.write("Список покупок:\\n- Молоко 🧀\\n- Хлеб 🍞\\n- Утиный корм 🦆")
+\`\`\`
+
+Сохрани этот код в файл \`create_list.py\` и запусти его:
+\`\`\`bash
+python create_list.py
+\`\`\`
+
+Файл \`shopping_list.txt\` появится на твоём ПК! 🛒 Что ещё добавить в список?`;
+            } else if (request.includes('уберись') || request.includes('уборка')) {
+                output.textContent = `Арооо! Я не могу убираться физически, но могу помочь составить план уборки! Вот пример:
+
+1. **Собери вещи** (10 минут): Положи всё на свои места.
+2. **Протри пыль** (5 минут): Используй влажную тряпку.
+3. **Подмети пол** (10 минут): Или пропылесось.
+4. **Помой посуду** (10 минут): Если есть грязная посуда.
+
+Общее время: ~35 минут. Хочешь, я составлю скрипт, который напомнит тебе о каждом шаге? 😸`;
+            } else {
+                output.textContent = `Арооо! Я пока не знаю, как выполнить "${request}". Но я могу помочь с чем-то другим! Например, я могу:
+- Напомнить о задаче.
+- Открыть программу.
+- Составить список.
+- Дать инструкции по уборке.
+Что ты хочешь сделать? 🐺`;
+            }
+        }
     </script>
 </body>
 </html>
