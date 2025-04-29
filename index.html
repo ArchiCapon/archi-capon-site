@@ -43,53 +43,27 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 0 10px rgba(199, 21, 133, 0.5);
-            transition: background 0.5s ease;
             z-index: 1000;
         }
-        .theme-toggle.light {
+        body.light-theme .theme-toggle {
             background: linear-gradient(135deg, #ffd700, #ff8c00);
             box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
         .theme-icon {
             font-size: 24px;
             color: #e0e0ff;
-            animation: moonToSun 0.5s forwards;
+            transition: transform 0.5s, opacity 0.5s;
         }
-        .theme-toggle.light .theme-icon {
-            animation: sunToMoon 0.5s forwards;
+        body.light-theme .theme-icon {
+            color: #1a0033;
         }
-        @keyframes moonToSun {
-            0% {
-                content: "🌙";
-                transform: rotate(0deg);
-            }
-            50% {
-                transform: rotate(90deg);
-                opacity: 0;
-            }
-            100% {
-                content: "☀️";
-                transform: rotate(0deg);
-                opacity: 1;
-                color: #1a0033;
-            }
+        .theme-icon.moon {
+            transform: rotate(0deg);
+            opacity: 1;
         }
-        @keyframes sunToMoon {
-            0% {
-                content: "☀️";
-                transform: rotate(0deg);
-                color: #1a0033;
-            }
-            50% {
-                transform: rotate(90deg);
-                opacity: 0;
-            }
-            100% {
-                content: "🌙";
-                transform: rotate(0deg);
-                opacity: 1;
-                color: #e0e0ff;
-            }
+        .theme-icon.sun {
+            transform: rotate(90deg);
+            opacity: 1;
         }
         /* Боковое меню на ПК */
         .sidebar {
@@ -231,6 +205,7 @@
         }
         .carousel-images .placeholder-img {
             width: 100%;
+            flex-shrink: 0;
         }
         .carousel-btn {
             position: absolute;
@@ -693,7 +668,7 @@
 <body>
     <!-- Переключатель темы -->
     <div class="theme-toggle" onclick="toggleTheme()">
-        <span class="theme-icon">🌙</span>
+        <span class="theme-icon moon">🌙</span>
     </div>
 
     <!-- Модальное окно -->
@@ -721,3 +696,147 @@
             <h1 class="neon-text">GUSEN DUCK IS</h1>
             <nav>
                 <ul>
+                    <li><a href="#bio">Кто я</a></li>
+                    <li><a href="#story">История</a></li>
+                    <li><a href="#project">Проект</a></li>
+                    <li><a href="#plans">Планы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Основной контент -->
+        <div class="main-content">
+            <div class="section fade-in" id="bio">
+                <h2>Кто я такой?</h2>
+                <a href="https://twitch.tv/twilight_parrot">
+                    <div class="placeholder-img">Image Placeholder</div>
+                </a>
+                <p>Я — Archi Capon, мастер цифровых миров и создатель <strong>GUSEN DUCK IS</strong>. Раньше я был известен как twilight_parrot, покоряя Twitch своими стримами. Теперь я визионер, соединяющий веселье и криптовалюту в одной игре!</p>
+                <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
+            </div>
+
+            <div class="section fade-in" id="story">
+                <h2>Наша история</h2>
+                <a href="https://x.com/ArchiCapon">
+                    <div class="placeholder-img">Image Placeholder</div>
+                </a>
+                <p>Всё началось с мечты создать игру, которая перевернёт мир. Я, Archi Capon, объединил силы с единомышленниками, чтобы воплотить идею <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывай криптовалюту.</p>
+                <p>Мы создали прототип, который стал началом утиной революции. Этот сайт — наша презентация проекта. Мы хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашему движению. Вместе мы создаём будущее, где веселье и технологии идут рука об руку!</p>
+            </div>
+
+            <div class="section fade-in" id="project">
+                <h2>GUSEN DUCK IS</h2>
+                <div class="carousel">
+                    <div class="carousel-images" id="carouselImages">
+                        <div class="placeholder-img">Image Placeholder</div>
+                        <div class="placeholder-img">Image Placeholder</div>
+                        <div class="placeholder-img">Image Placeholder</div>
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                </div>
+                <p><strong>GUSEN DUCK IS</strong> — это революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте.</p>
+                <div class="highlight">
+                    <p><strong>Почему это круто:</strong></p>
+                    <ul>
+                        <li>Тапай уток, избегай голубей — копи монеты!</li>
+                        <li>Зови друзей и получай 5% от их активности.</li>
+                        <li>Лидерборд для утиных королей.</li>
+                        <li>Баннеры с нашими проектами.</li>
+                    </ul>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.gusenduckis" class="download-btn btn-glow">Скачать игру (скоро!)</a>
+            </div>
+
+            <div class="section fade-in" id="plans">
+                <h2>Наши планы</h2>
+                <a href="#contact">
+                    <div class="placeholder-img">Image Placeholder</div>
+                </a>
+                <p>Мы не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга.</p>
+                <p>В планах: запуск на Google Play и App Store, новые уровни с боссами-голубями, интеграция NFT-уток и создание утиного сообщества. Следи за обновлениями и стань частью утиной империи!</p>
+            </div>
+
+            <div class="section fade-in" id="contact">
+                <h2>Связаться</h2>
+                <p>Хочешь говорить про уток, крипту или идеи? Пиши!</p>
+                <div class="contact-form">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">
+                        Загрузка формы...
+                    </iframe>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/archicapon">✈️ Telegram</a> |
+                    <a href="https://twitch.tv/twilight_parrot">🎮 Twitch</a> |
+                    <a href="https://x.com/ArchiCapon">🐦 X.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Пространство для рекламы -->
+    <section class="ad-space">
+        <h2>Реклама</h2>
+        <div class="placeholder-ad">Ad Placeholder</div>
+    </section>
+
+    <footer>
+        <p>© 2025 Archi Capon. Создано с утиной страстью 🦆 | <a href="#manifest">Утиный манифест</a></p>
+    </footer>
+
+    <script>
+        // Показ модального окна
+        window.onload = function() {
+            const modal = document.getElementById('welcomeModal');
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        };
+
+        // Переключение темы
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.querySelector('.theme-icon');
+            body.classList.toggle('light-theme');
+            if (body.classList.contains('light-theme')) {
+                icon.textContent = '☀️';
+                icon.classList.remove('moon');
+                icon.classList.add('sun');
+            } else {
+                icon.textContent = '🌙';
+                icon.classList.remove('sun');
+                icon.classList.add('moon');
+            }
+        }
+
+        // Карусель
+        let currentSlide = 0;
+        const carouselImages = document.getElementById('carouselImages');
+        const slides = document.querySelectorAll('.carousel-images .placeholder-img');
+        const totalSlides = slides.length;
+
+        function moveCarousel(direction) {
+            if (!carouselImages || totalSlides === 0) return;
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            const offset = -currentSlide * 100;
+            carouselImages.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Плавный скролл к секциям
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
