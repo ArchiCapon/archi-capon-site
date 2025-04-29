@@ -171,6 +171,27 @@
         body.light-theme .section p {
             color: #1a0033;
         }
+        /* Изображения с переключением темы */
+        .theme-img {
+            width: 100%;
+            height: 150px;
+            border-radius: 5px;
+            margin: 10px 0;
+            object-fit: cover;
+            transition: opacity 0.3s;
+        }
+        .theme-img.dark {
+            display: block;
+        }
+        .theme-img.light {
+            display: none;
+        }
+        body.light-theme .theme-img.dark {
+            display: none;
+        }
+        body.light-theme .theme-img.light {
+            display: block;
+        }
         /* Заглушка для изображений */
         .placeholder-img {
             width: 100%;
@@ -524,7 +545,7 @@
                 max-width: 350px;
                 min-height: auto;
             }
-            .placeholder-img {
+            .placeholder-img, .theme-img {
                 height: 120px;
             }
             .carousel {
@@ -710,7 +731,8 @@
             <div class="section fade-in" id="bio">
                 <h2>Кто я такой?</h2>
                 <a href="https://twitch.tv/twilight_parrot">
-                    <div class="placeholder-img">Image Placeholder</div>
+                    <img src="https://i.imgur.com/9aXbZ2T.png" alt="Archi Capon Dark Theme" class="theme-img dark">
+                    <img src="https://i.imgur.com/5kYvN3m.png" alt="Archi Capon Light Theme" class="theme-img light">
                 </a>
                 <p>Я — Archi Capon, мастер цифровых миров и создатель <strong>GUSEN DUCK IS</strong>. Раньше я был известен как twilight_parrot, покоряя Twitch своими стримами. Теперь я визионер, соединяющий веселье и криптовалюту в одной игре!</p>
                 <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
@@ -719,7 +741,7 @@
             <div class="section fade-in" id="story">
                 <h2>Наша история</h2>
                 <a href="https://x.com/ArchiCapon">
-                    <div class="placeholder-img">Image Placeholder</div>
+                    <img src="https://i.imgur.com/JzL8pQw.png" alt="Our Story" class="theme-img">
                 </a>
                 <p>Всё началось с мечты создать игру, которая перевернёт мир. Я, Archi Capon, объединил силы с единомышленниками, чтобы воплотить идею <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывай криптовалюту.</p>
                 <p>Мы создали прототип, который стал началом утиной революции. Этот сайт — наша презентация проекта. Мы хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашему движению. Вместе мы создаём будущее, где веселье и технологии идут рука об руку!</p>
