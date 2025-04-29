@@ -99,17 +99,20 @@
             line-height: 1.6;
             color: #e0e0ff;
         }
-        .section img {
+        /* Заглушка для изображений */
+        .placeholder-img {
             width: 100%;
             height: 150px;
-            object-fit: cover;
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 5px;
             border: 1px solid #00ffcc;
             margin: 10px 0;
-            transition: transform 0.3s;
-        }
-        .section img:hover {
-            transform: scale(1.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e0e0ff;
+            font-size: 0.9em;
+            text-align: center;
         }
         /* Карусель */
         .carousel {
@@ -123,13 +126,8 @@
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-        .carousel-images a {
+        .carousel-images .placeholder-img {
             width: 100%;
-        }
-        .carousel-images img {
-            width: 100%;
-            border-radius: 5px;
-            border: 1px solid #ff00ff;
         }
         .carousel-btn {
             position: absolute;
@@ -182,24 +180,6 @@
         .download-btn:hover {
             background: #00ffcc;
             transform: scale(1.05);
-        }
-        /* Декоративные утки */
-        .duck-decor {
-            position: absolute;
-            width: 40px;
-            height: 40px;
-            background: url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50') no-repeat center;
-            background-size: cover;
-            animation: float 6s infinite;
-            opacity: 0.7;
-        }
-        .duck-decor:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
-        .duck-decor:nth-child(2) { top: 20%; right: 5%; animation-delay: 1s; }
-        .duck-decor:nth-child(3) { bottom: 15%; left: 10%; animation-delay: 2s; }
-        .duck-decor:nth-child(4) { bottom: 25%; right: 10%; animation-delay: 3s; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
         }
         /* Модальное окно */
         .modal {
@@ -297,6 +277,37 @@
             color: #00ffcc;
             text-shadow: 0 0 10px #00ffcc;
         }
+        /* Пространство для рекламы */
+        .ad-space {
+            background: rgba(20, 0, 50, 0.8);
+            border: 1px solid #ff00ff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
+        }
+        .ad-space h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            color: #00ffcc;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        .ad-space .placeholder-ad {
+            width: 100%;
+            height: 100px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            border: 1px solid #ff00ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e0e0ff;
+            font-size: 1em;
+        }
         /* Неоновые эффекты */
         .neon-text {
             animation: neon 2s infinite alternate;
@@ -341,7 +352,7 @@
                 max-width: 350px;
                 min-height: auto;
             }
-            .section img {
+            .placeholder-img {
                 height: 120px;
             }
             .carousel {
@@ -359,6 +370,9 @@
             }
             .modal-content p {
                 font-size: 0.9em;
+            }
+            .ad-space {
+                width: 90%;
             }
         }
         /* Дополнительные анимации */
@@ -476,10 +490,6 @@
         <div class="particle"></div>
         <div class="particle"></div>
     </div>
-    <div class="duck-decor"></div>
-    <div class="duck-decor"></div>
-    <div class="duck-decor"></div>
-    <div class="duck-decor"></div>
 
     <div class="container">
         <!-- Боковое меню -->
@@ -501,7 +511,7 @@
             <div class="section fade-in" id="bio">
                 <h2>Кто я такой?</h2>
                 <a href="https://twitch.tv/twilight_parrot">
-                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Archi Capon">
+                    <div class="placeholder-img">Image Placeholder</div>
                 </a>
                 <p>Я — Archi Capon, мастер цифровых миров и создатель <strong>GUSEN DUCK IS</strong>. Раньше я был известен как twilight_parrot, покоряя Twitch своими стримами. Теперь я визионер, соединяющий веселье и криптовалюту в одной игре!</p>
                 <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
@@ -509,10 +519,10 @@
 
             <div class="section fade-in" id="story">
                 <h2>Наша история</h2>
-                <a href="https://x.com/twilight_parrot">
-                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Работа над проектом">
+                <a href="https://x.com/ArchiCapon">
+                    <div class="placeholder-img">Image Placeholder</div>
                 </a>
-                <p>Всё началось с мечты создать игру, которая перевернёт мир. Я, Archi Capon, объединил силы с единомышленниками, чтобы воплотить идею <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывать криптовалюту.</p>
+                <p>Всё началось с мечты создать игру, которая перевернёт мир. Я, Archi Capon, объединил силы с единомышленниками, чтобы воплотить идею <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывай криптовалюту.</p>
                 <p>Мы создали прототип, который стал началом утиной революции. Этот сайт — наша презентация проекта. Мы хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашему движению. Вместе мы создаём будущее, где веселье и технологии идут рука об руку!</p>
             </div>
 
@@ -520,15 +530,9 @@
                 <h2>GUSEN DUCK IS</h2>
                 <div class="carousel">
                     <div class="carousel-images" id="carouselImages">
-                        <a href="https://t.me/archicapon">
-                            <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" alt="Утка с монетами">
-                        </a>
-                        <a href="https://t.me/archicapon">
-                            <img src="https://images.unsplash.com/photo-1551288049-b5f3e26d4d08?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Лидерборд">
-                        </a>
-                        <a href="https://t.me/archicapon">
-                            <img src="https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=600" alt="NFT-утка">
-                        </a>
+                        <div class="placeholder-img">Image Placeholder</div>
+                        <div class="placeholder-img">Image Placeholder</div>
+                        <div class="placeholder-img">Image Placeholder</div>
                     </div>
                     <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
                     <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
@@ -549,7 +553,7 @@
             <div class="section fade-in" id="plans">
                 <h2>Наши планы</h2>
                 <a href="#contact">
-                    <img src="https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=800&h=300" alt="Будущее GUSEN DUCK IS">
+                    <div class="placeholder-img">Image Placeholder</div>
                 </a>
                 <p>Мы не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга.</p>
                 <p>В планах: запуск на Google Play и App Store, новые уровни с боссами-голубями, интеграция NFT-уток и создание утиного сообщества. Следи за обновлениями и стань частью утиной империи!</p>
@@ -566,11 +570,17 @@
                 <div class="social-links">
                     <a href="https://t.me/archicapon">✈️ Telegram</a> |
                     <a href="https://twitch.tv/twilight_parrot">🎮 Twitch</a> |
-                    <a href="https://x.com/twilight_parrot">🐦 X.com</a>
+                    <a href="https://x.com/ArchiCapon">🐦 X.com</a>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Пространство для рекламы -->
+    <section class="ad-space">
+        <h2>Реклама</h2>
+        <div class="placeholder-ad">Ad Placeholder</div>
+    </section>
 
     <footer>
         <p>© 2025 Archi Capon. Создано с утиной страстью 🦆 | <a href="#manifest">Утиный манифест</a></p>
@@ -584,7 +594,7 @@
 
         // Карусель
         let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-images img');
+        const slides = document.querySelectorAll('.carousel-images .placeholder-img');
         const totalSlides = slides.length;
 
         function moveCarousel(direction) {
