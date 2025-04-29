@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archi Capon - Создатель GUSEN DUCK IS</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #87ceeb, #f0f0f0);
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            background: #ffd700;
+            padding: 20px;
+            border-radius: 10px 10px 0 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: #333;
+        }
+        header p {
+            margin: 5px 0;
+            font-style: italic;
+            color: #555;
+        }
+        .bio, .project, .contact {
+            padding: 20px;
+            margin: 10px 0;
+        }
+        .bio h2, .project h2, .contact h2 {
+            color: #28a745;
+            border-bottom: 2px solid #ffd700;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .bio p, .project p {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        .project .highlight {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .contact a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        .duck {
+            width: 50px;
+            height: 50px;
+            background: url('https://via.placeholder.com/50?text=🦆') no-repeat center;
+            display: inline-block;
+            animation: waddle 2s infinite;
+        }
+        @keyframes waddle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+                padding: 10px;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Archi Capon</h1>
+            <p>aka Finikulers | Легенда игр и крипты</p>
+            <div class="duck"></div>
+        </header>
+
+        <section class="bio">
+            <h2>Кто я такой?</h2>
+            <p>Я — Archi Capon, мастер цифровых миров и гениальный мозг за проектом <strong>GUSEN DUCK IS</strong>. Когда-то я был известен как Finikulers, покоряя Twitch своими стримами и харизмой. Теперь я — визионер, который соединяет веселье и криптовалюту в одной игре! <span class="duck"></span></p>
+            <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
+        </section>
+
+        <section class="project">
+            <h2>GUSEN DUCK IS — Мой шедевр</h2>
+            <p><strong>GUSEN DUCK IS</strong> — это не просто игра, а революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте. <span class="duck"></span></p>
+            <div class="highlight">
+                <p><strong>Почему это круто:</strong></p>
+                <ul>
+                    <li>Тапай уток, избегай голубей — копи монеты!</li>
+                    <li>Зови друзей и получай 5% от их активности.</li>
+                    <li>Лидерборд для настоящих утиных королей.</li>
+                    <li>Баннеры с моими проектами, вроде подбора скинов для CS2.</li>
+                </ul>
+            </div>
+            <p>Всё началось с моего старого компа (спасибо, Дани!), а теперь мы идём на Google Play. Присоединяйся к утиному движу!</p>
+        </section>
+
+        <section class="contact">
+            <h2>Погнали творить?</h2>
+            <p>Хочешь говорить про уток, крипту или идеи? Лови меня!</p>
+            <p><a href="mailto:archi@gusenduckis.com">archi@gusenduckis.com</a> | <a href="https://t.me/gusenduckis">Telegram</a></p>
+            <p>Или ищи Finikulers в игровых тусовках — я всё ещё легенда!</p>
+        </section>
+
+        <footer>
+            <p>© 2025 Archi Capon. Сделано с утиной страстью и любовью от Лунары 🐺</p>
+        </footer>
+    </div>
+
+    <script>
+        // Анимация уток
+        const ducks = document.querySelectorAll('.duck');
+        ducks.forEach((duck, index) => {
+            duck.style.animationDelay = `${index * 0.5}s`;
+        });
+    </script>
+</body>
+</html>
