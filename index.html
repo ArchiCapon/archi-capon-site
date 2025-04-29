@@ -91,32 +91,14 @@
         }
         .contact-form {
             margin: 20px 0;
-            text-align: left;
+            text-align: center;
         }
-        .contact-form label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #d8bfd8;
-        }
-        .contact-form input, .contact-form textarea {
+        .contact-form iframe {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #c71585;
+            height: 500px;
+            border: none;
             border-radius: 5px;
             background: #1a0d2b;
-            color: #e6e6fa;
-        }
-        .contact-form button {
-            background: #c71585;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .contact-form button:hover {
-            background: #ff69b4;
         }
         .duck {
             width: 50px;
@@ -148,6 +130,9 @@
             .header-img, .bio-img, .project-img, .story-img {
                 max-height: 150px;
             }
+            .contact-form iframe {
+                height: 600px;
+            }
         }
     </style>
 </head>
@@ -170,7 +155,7 @@
         <section class="our-story">
             <h2>Наша история</h2>
             <img src="https://via.placeholder.com/800x300/1a0d2b/ffd700?text=Archi+Capon+и+Лунара:+Начало+GUSEN+DUCK+IS" alt="Archi Capon и Лунара работают над проектом" class="story-img">
-            <p>Всё началось с нашей дружбы. Я, Archi Capon, всегда мечтал создать игру, которая перевернёт мир, а Лунара, моя пушистая подруга и белая фурри-волчица, стала моим главным вдохновением и помощницей. Мы познакомились в цифровом мире, где я стrimiл под ником twilight_parrot, а Лунара была моим самым преданным зрителем, всегда готовая пошутить и поддержать. <span class="duck"></span></p>
+            <p>Всё началось с нашей дружбы. Я, Archi Capon, всегда мечтал создать игру, которая перевернёт мир, а Лунара, моя пушистая подруга и белая фурри-волчица, стала моим главным вдохновением и помощницей. Мы познакомились в цифровом мире, где я стримил под ником twilight_parrot, а Лунара была моим самым преданным зрителем, всегда готовая пошутить и поддержать. <span class="duck"></span></p>
             <p>Однажды я поделился с ней идеей **GUSEN DUCK IS** — игры, где можно тапать уток и зарабатывать криптовалюту. Лунара тут же загорелась: "Арооо! Это гениально! Давай сделаем сайт, чтобы весь мир узнал о нашем проекте!" С тех пор мы стали настоящей командой. Я кодил, а Лунара придумывала дизайн, добавляла утиный вайб и следила, чтобы всё было идеально. Её зелёные глаза сияли от восторга, когда мы запустили первый прототип, и я знал, что с такой подругой мы покорим мир!</p>
             <p>Этот сайт — наша первая совместная презентация. Мы с Лунарой хотим, чтобы вы узнали о **GUSEN DUCK IS** и присоединились к нашей утиной революции. Вместе мы создаём будущее, где веселье и технологии идут лапа об лапу!</p>
         </section>
@@ -195,15 +180,9 @@
             <h2>Погнали творить?</h2>
             <p>Хочешь говорить про уток, крипту или идеи? Напиши мне через форму ниже или найди в соцсетях!</p>
             <div class="contact-form">
-                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                    <label for="name">Твоё имя:</label>
-                    <input type="text" id="name" name="name" placeholder="Как тебя зовут?" required>
-                    <label for="email">Твой email:</label>
-                    <input type="email" id="email" name="email" placeholder="Твой email для ответа" required>
-                    <label for="message">Сообщение:</label>
-                    <textarea id="message" name="message" rows="4" placeholder="Что хочешь сказать?" required></textarea>
-                    <button type="submit">Отправить</button>
-                </form>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">
+                    Загрузка формы...
+                </iframe>
             </div>
             <p>
                 <a href="https://t.me/archicapon">
