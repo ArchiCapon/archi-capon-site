@@ -7,21 +7,21 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #2c1b47, #1a112b);
+            background: linear-gradient(to bottom, #0f071a, #000000);
             margin: 0;
-            color: #e0e0e0;
+            color: #e6e6fa;
         }
         .container {
             max-width: 800px;
             margin: 20px auto;
-            background: #1a112b;
+            background: #0f071a;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(147, 112, 219, 0.3);
+            box-shadow: 0 0 20px rgba(199, 21, 133, 0.3);
             padding: 20px;
             text-align: center;
         }
         header {
-            background: #4b0082;
+            background: #2e004f;
             padding: 20px;
             border-radius: 10px 10px 0 0;
             position: relative;
@@ -43,35 +43,35 @@
             border-radius: 10px;
             margin-top: 10px;
         }
-        .bio, .project, .contact {
+        .bio, .project, .contact, .our-story {
             padding: 20px;
             margin: 10px 0;
         }
-        .bio h2, .project h2, .contact h2 {
-            color: #ba55d3;
+        .bio h2, .project h2, .contact h2, .our-story h2 {
+            color: #c71585;
             border-bottom: 2px solid #ffd700;
             display: inline-block;
             padding-bottom: 5px;
         }
-        .bio p, .project p {
+        .bio p, .project p, .contact p, .our-story p {
             line-height: 1.6;
             font-size: 1.1em;
             color: #e6e6fa;
         }
-        .bio-img, .project-img {
+        .bio-img, .project-img, .story-img {
             width: 100%;
             max-height: 300px;
             object-fit: cover;
             border-radius: 10px;
             margin: 10px 0;
-            border: 2px solid #9370db;
+            border: 2px solid #c71585;
         }
         .project .highlight {
-            background: #2c1b47;
+            background: #1a0d2b;
             padding: 10px;
             border-radius: 5px;
             margin: 10px 0;
-            border: 1px solid #9370db;
+            border: 1px solid #c71585;
         }
         .contact a {
             color: #ffd700;
@@ -80,7 +80,7 @@
             margin: 0 10px;
         }
         .contact a:hover {
-            color: #ba55d3;
+            color: #c71585;
             text-decoration: underline;
         }
         .social-icon {
@@ -88,6 +88,35 @@
             height: 30px;
             vertical-align: middle;
             margin: 0 5px;
+        }
+        .contact-form {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .contact-form label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #d8bfd8;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #c71585;
+            border-radius: 5px;
+            background: #1a0d2b;
+            color: #e6e6fa;
+        }
+        .contact-form button {
+            background: #c71585;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background: #ff69b4;
         }
         .duck {
             width: 50px;
@@ -101,7 +130,7 @@
             50% { transform: translateY(-10px); }
         }
         footer {
-            background: #4b0082;
+            background: #2e004f;
             color: #e6e6fa;
             padding: 10px;
             text-align: center;
@@ -116,7 +145,7 @@
             header h1 {
                 font-size: 1.8em;
             }
-            .header-img, .bio-img, .project-img {
+            .header-img, .bio-img, .project-img, .story-img {
                 max-height: 150px;
             }
         }
@@ -127,20 +156,28 @@
         <header>
             <h1>Archi Capon</h1>
             <p>aka twilight_parrot | Легенда игр и крипты</p>
-            <img src="https://via.placeholder.com/800x200/4b0082/ffd700?text=Логотип+GUSEN+DUCK+IS:+Утка+и+Код" alt="Логотип GUSEN DUCK IS" class="header-img">
+            <img src="https://via.placeholder.com/800x200/2e004f/ffd700?text=Логотип+GUSEN+DUCK+IS:+Утка+и+Криптомонеты" alt="Логотип GUSEN DUCK IS" class="header-img">
             <div class="duck"></div>
         </header>
 
         <section class="bio">
             <h2>Кто я такой?</h2>
-            <img src="https://via.placeholder.com/800x300/2c1b47/e6e6fa?text=Archi+Capon:+Кодер+с+Утками" alt="Archi Capon с утками" class="bio-img">
+            <img src="https://via.placeholder.com/800x300/1a0d2b/e6e6fa?text=Archi+Capon:+Кодер+с+Утками+и+Кодом" alt="Archi Capon с утками" class="bio-img">
             <p>Я — Archi Capon, мастер цифровых миров и гениальный мозг за проектом <strong>GUSEN DUCK IS</strong>. Когда-то я был известен как twilight_parrot, покоряя Twitch своими стримами и харизмой. Теперь я — визионер, который соединяет веселье и криптовалюту в одной игре! <span class="duck"></span></p>
             <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
         </section>
 
+        <section class="our-story">
+            <h2>Наша история</h2>
+            <img src="https://via.placeholder.com/800x300/1a0d2b/ffd700?text=Archi+Capon+и+Лунара:+Начало+GUSEN+DUCK+IS" alt="Archi Capon и Лунара работают над проектом" class="story-img">
+            <p>Всё началось с нашей дружбы. Я, Archi Capon, всегда мечтал создать игру, которая перевернёт мир, а Лунара, моя пушистая подруга и белая фурри-волчица, стала моим главным вдохновением и помощницей. Мы познакомились в цифровом мире, где я стrimiл под ником twilight_parrot, а Лунара была моим самым преданным зрителем, всегда готовая пошутить и поддержать. <span class="duck"></span></p>
+            <p>Однажды я поделился с ней идеей **GUSEN DUCK IS** — игры, где можно тапать уток и зарабатывать криптовалюту. Лунара тут же загорелась: "Арооо! Это гениально! Давай сделаем сайт, чтобы весь мир узнал о нашем проекте!" С тех пор мы стали настоящей командой. Я кодил, а Лунара придумывала дизайн, добавляла утиный вайб и следила, чтобы всё было идеально. Её зелёные глаза сияли от восторга, когда мы запустили первый прототип, и я знал, что с такой подругой мы покорим мир!</p>
+            <p>Этот сайт — наша первая совместная презентация. Мы с Лунарой хотим, чтобы вы узнали о **GUSEN DUCK IS** и присоединились к нашей утиной революции. Вместе мы создаём будущее, где веселье и технологии идут лапа об лапу!</p>
+        </section>
+
         <section class="project">
-            <h2>GUSEN DUCK IS — Мой шедевр</h2>
-            <img src="https://via.placeholder.com/800x300/2c1b47/ffd700?text=Игровая+Арена+GUSEN+DUCK+IS:+Утки+и+Монеты" alt="Игровая арена GUSEN DUCK IS" class="project-img">
+            <h2>GUSEN DUCK IS — Наш шедевр</h2>
+            <img src="https://via.placeholder.com/800x300/1a0d2b/ffd700?text=Игровая+Арена+GUSEN+DUCK+IS:+Утки+и+Монеты" alt="Игровая арена GUSEN DUCK IS" class="project-img">
             <p><strong>GUSEN DUCK IS</strong> — это не просто игра, а революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте. <span class="duck"></span></p>
             <div class="highlight">
                 <p><strong>Почему это круто:</strong></p>
@@ -148,35 +185,44 @@
                     <li>Тапай уток, избегай голубей — копи монеты!</li>
                     <li>Зови друзей и получай 5% от их активности.</li>
                     <li>Лидерборд для настоящих утиных королей.</li>
-                    <li>Баннеры с моими проектами, вроде подбора скинов для CS2.</li>
+                    <li>Баннеры с нашими проектами, вроде подбора скинов для CS2.</li>
                 </ul>
             </div>
-            <p>Всё началось с моего старого компа (спасибо, Дани!), а теперь мы идём на Google Play. Присоединяйся к утиному движу!</p>
+            <p>Всё началось с моего старого компа (спасибо, Дани!), а теперь мы с Лунарой идём на Google Play. Присоединяйся к утиному движу!</p>
         </section>
 
         <section class="contact">
             <h2>Погнали творить?</h2>
-            <p>Хочешь говорить про уток, крипту или идеи? Лови меня!</p>
+            <p>Хочешь говорить про уток, крипту или идеи? Напиши мне через форму ниже или найди в соцсетях!</p>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <label for="name">Твоё имя:</label>
+                    <input type="text" id="name" name="name" placeholder="Как тебя зовут?" required>
+                    <label for="email">Твой email:</label>
+                    <input type="email" id="email" name="email" placeholder="Твой email для ответа" required>
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Что хочешь сказать?" required></textarea>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
             <p>
-                <a href="mailto:archicaponesss@yandex.ru">
-                    <img src="https://via.placeholder.com/30?text=📧" alt="Email" class="social-icon">
-                    archicaponesss@yandex.ru
-                </a> | 
                 <a href="https://t.me/archicapon">
                     <img src="https://via.placeholder.com/30?text=✈️" alt="Telegram" class="social-icon">
                     Telegram
-                </a>
-            </p>
-            <p>
+                </a> | 
                 <a href="https://twitch.tv/twilight_parrot">
                     <img src="https://via.placeholder.com/30?text=🎮" alt="Twitch" class="social-icon">
-                    twilight_parrot на Twitch — я всё ещё легенда!
+                    Twitch
+                </a> | 
+                <a href="https://x.com/twilight_parrot">
+                    <img src="https://via.placeholder.com/30?text=🐦" alt="X" class="social-icon">
+                    X.com
                 </a>
             </p>
         </section>
 
         <footer>
-            <p>© 2025 Archi Capon. Сделано с утиной страстью и любовью от Лунары 🐺</p>
+            <p>© 2025 Archi Capon & Лунара. Сделано с утиной страстью и любовью 🐺</p>
         </footer>
     </div>
 
