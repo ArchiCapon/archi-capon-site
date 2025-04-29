@@ -3,215 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archi Capon - Создатель GUSEN DUCK IS</title>
+    <title>GUSEN DUCK IS - Фантастическая утиная революция</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: linear-gradient(to bottom, #0f071a, #000000);
+        /* Основные стили */
+        * {
             margin: 0;
-            color: #e6e6fa;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #0a0a23 0%, #1a0033 100%);
+            color: #e0e0ff;
             overflow-x: hidden;
+            position: relative;
         }
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            background: #0f071a;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(199, 21, 133, 0.3);
+            display: flex;
+            min-height: 100vh;
+            position: relative;
+        }
+        /* Боковое меню на ПК */
+        .sidebar {
+            width: 250px;
+            background: rgba(10, 0, 30, 0.9);
             padding: 20px;
+            position: fixed;
+            height: 100%;
+            border-right: 2px solid #ff00ff;
+            box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .sidebar h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8em;
+            color: #00ffcc;
             text-align: center;
-            position: relative;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px #00ffcc;
         }
-        header {
-            background: #2e004f;
-            padding: 20px;
-            border-radius: 10px 10px 0 0;
-            position: relative;
-            animation: glow 3s infinite alternate;
+        .sidebar nav ul {
+            list-style: none;
         }
-        @keyframes glow {
-            0% { box-shadow: 0 0 10px #c71585; }
-            100% { box-shadow: 0 0 20px #ff69b4; }
+        .sidebar nav ul li {
+            margin: 20px 0;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            color: #ffd700;
-            animation: bounce 1s ease-in-out;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        header p {
-            margin: 5px 0;
-            font-style: italic;
-            color: #d8bfd8;
-        }
-        .header-img {
-            width: 100%;
-            max-height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-top: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .header-img:hover {
-            transform: scale(1.05);
-        }
-        .bio, .project, .contact, .our-story, .future-plans, .lunara-bio, .assistant-section {
-            padding: 20px;
-            margin: 10px 0;
-        }
-        .bio h2, .project h2, .contact h2, .our-story h2, .future-plans h2, .lunara-bio h2, .assistant-section h2 {
-            color: #c71585;
-            border-bottom: 2px solid #ffd700;
-            display: inline-block;
-            padding-bottom: 5px;
-            transition: transform 0.3s;
-        }
-        .bio h2:hover, .project h2:hover, .contact h2:hover, .our-story h2:hover, .future-plans h2:hover, .lunara-bio h2:hover, .assistant-section h2:hover {
-            transform: scale(1.1);
-        }
-        .bio p, .project p, .contact p, .our-story p, .future-plans p, .lunara-bio p, .assistant-section p {
-            line-height: 1.6;
+        .sidebar nav ul li a {
+            color: #e0e0ff;
+            text-decoration: none;
             font-size: 1.1em;
-            color: #e6e6fa;
-        }
-        .bio-img, .project-img, .story-img, .future-img, .lunara-img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin: 10px 0;
-            border: 2px solid #c71585;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        .bio-img:hover, .project-img:hover, .story-img:hover, .future-img:hover, .lunara-img:hover {
-            transform: scale(1.05);
-        }
-        .project .highlight {
-            background: #1a0d2b;
+            display: block;
             padding: 10px;
             border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .sidebar nav ul li a:hover {
+            background: #ff00ff;
+            transform: translateX(10px);
+            box-shadow: 0 0 10px #ff00ff;
+        }
+        /* Основной контент */
+        .main-content {
+            margin-left: 250px;
+            padding: 40px;
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .section {
+            background: rgba(20, 0, 50, 0.8);
+            border: 1px solid #00ffcc;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            min-height: 400px;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
+        }
+        .section h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5em;
+            color: #ff00ff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        .section p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #e0e0ff;
+        }
+        .section img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #00ffcc;
             margin: 10px 0;
-            border: 1px solid #c71585;
-        }
-        .contact a {
-            color: #ffd700;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 10px;
-            transition: color 0.3s;
-        }
-        .contact a:hover {
-            color: #c71585;
-            text-decoration: underline;
-        }
-        .social-icon {
-            vertical-align: middle;
-            margin: 0 5px;
             transition: transform 0.3s;
         }
-        .social-icon:hover {
-            transform: rotate(15deg) scale(1.2);
-        }
-        .contact-form {
-            margin: 20px 0;
-            text-align: center;
-        }
-        .contact-form iframe {
-            width: 100%;
-            height: 500px;
-            border: none;
-            border-radius: 5px;
-            background: #1a0d2b;
-        }
-        .duck {
-            width: 50px;
-            height: 50px;
-            background: url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50') no-repeat center;
-            display: inline-block;
-            animation: waddle 2s infinite;
-            position: relative;
-        }
-        .duck:hover::after {
-            content: "Кря!";
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #c71585;
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 0.9em;
-            opacity: 0;
-            animation: quack 1s forwards;
-        }
-        @keyframes quack {
-            0% { opacity: 0; transform: translateX(-50%) translateY(0); }
-            50% { opacity: 1; transform: translateX(-50%) translateY(-10px); }
-            100% { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-        }
-        @keyframes waddle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .download-btn {
-            display: inline-block;
-            background: #c71585;
-            color: #fff;
-            padding: 15px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px 0;
-            transition: background 0.3s;
-        }
-        .download-btn:hover {
-            background: #ff69b4;
-        }
-        footer {
-            background: #2e004f;
-            color: #e6e6fa;
-            padding: 15px;
-            text-align: center;
-            border-radius: 0 0 10px 10px;
-            margin-top: 20px;
-            position: relative;
-        }
-        footer a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-        footer a:hover {
-            color: #c71585;
-            text-decoration: underline;
-        }
-        .duck-decor {
-            position: absolute;
-            width: 30px;
-            height: 30px;
-            background: url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50') no-repeat center;
-            background-size: cover;
-            animation: float 5s infinite;
-        }
-        .duck-decor:nth-child(1) { top: 10%; left: 5%; }
-        .duck-decor:nth-child(2) { top: 30%; right: 5%; }
-        .duck-decor:nth-child(3) { bottom: 20%; left: 10%; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        .section img:hover {
+            transform: scale(1.05);
         }
         /* Карусель */
         .carousel {
             position: relative;
             width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
+            max-width: 280px;
+            margin: 10px auto;
             overflow: hidden;
         }
         .carousel-images {
@@ -223,26 +128,79 @@
         }
         .carousel-images img {
             width: 100%;
-            border-radius: 10px;
-            border: 2px solid #c71585;
+            border-radius: 5px;
+            border: 1px solid #ff00ff;
         }
         .carousel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(0, 0, 0, 0.5);
-            color: #ffd700;
+            color: #00ffcc;
             border: none;
-            padding: 10px;
+            padding: 5px 10px;
             cursor: pointer;
-            font-size: 1.5em;
+            font-size: 1.2em;
             transition: background 0.3s;
         }
         .carousel-btn:hover {
             background: rgba(0, 0, 0, 0.8);
         }
-        .carousel-btn.prev { left: 10px; }
-        .carousel-btn.next { right: 10px; }
+        .carousel-btn.prev { left: 5px; }
+        .carousel-btn.next { right: 5px; }
+        /* Контактная форма */
+        .contact-form iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .social-links a {
+            color: #00ffcc;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 1em;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
+        }
+        /* Кнопка скачивания */
+        .download-btn {
+            display: inline-block;
+            background: #ff00ff;
+            color: #e0e0ff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .download-btn:hover {
+            background: #00ffcc;
+            transform: scale(1.05);
+        }
+        /* Декоративные утки */
+        .duck-decor {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: url('https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&h=50') no-repeat center;
+            background-size: cover;
+            animation: float 6s infinite;
+            opacity: 0.7;
+        }
+        .duck-decor:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .duck-decor:nth-child(2) { top: 20%; right: 5%; animation-delay: 1s; }
+        .duck-decor:nth-child(3) { bottom: 15%; left: 10%; animation-delay: 2s; }
+        .duck-decor:nth-child(4) { bottom: 25%; right: 10%; animation-delay: 3s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
         /* Модальное окно */
         .modal {
             display: none;
@@ -251,19 +209,20 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
         }
         .modal-content {
-            background: #2e004f;
+            background: rgba(20, 0, 50, 0.9);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
             max-width: 500px;
             width: 90%;
-            border: 2px solid #c71585;
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
             animation: pop 0.5s ease-in-out;
         }
         @keyframes pop {
@@ -271,16 +230,18 @@
             100% { transform: scale(1); opacity: 1; }
         }
         .modal-content h2 {
-            color: #ffd700;
+            font-family: 'Orbitron', sans-serif;
+            color: #00ffcc;
             margin-top: 0;
+            text-shadow: 0 0 10px #00ffcc;
         }
         .modal-content p {
-            color: #e6e6fa;
+            color: #e0e0ff;
             line-height: 1.6;
         }
         .modal-content .close-btn, .modal-content .join-btn {
-            background: #c71585;
-            color: #fff;
+            background: #ff00ff;
+            color: #e0e0ff;
             border: none;
             padding: 10px 20px;
             border-radius: 5px;
@@ -289,66 +250,105 @@
             transition: background 0.3s;
         }
         .modal-content .join-btn {
-            background: #ffd700;
-            color: #2e004f;
+            background: #00ffcc;
+            color: #0a0a23;
         }
         .modal-content .close-btn:hover, .modal-content .join-btn:hover {
-            background: #ff69b4;
+            background: #ff66ff;
         }
-        /* Стили для раздела помощницы */
-        .assistant-section {
-            padding: 20px;
-            margin: 10px 0;
-            background: #1a0d2b;
-            border-radius: 10px;
-            border: 2px solid #c71585;
-        }
-        .assistant-input {
-            width: 100%;
+        /* Анимации для текста */
+        .highlight {
+            background: rgba(0, 255, 204, 0.1);
             padding: 10px;
+            border-radius: 5px;
             margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #c71585;
-            background: #2e004f;
-            color: #e6e6fa;
-            font-size: 1em;
+            border: 1px solid #00ffcc;
         }
-        .assistant-btn {
-            background: #c71585;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin: 5px;
-            transition: background 0.3s;
+        .highlight ul {
+            list-style: none;
+            padding-left: 0;
         }
-        .assistant-btn:hover {
-            background: #ff69b4;
+        .highlight li {
+            margin: 5px 0;
+            position: relative;
+            padding-left: 20px;
         }
-        .assistant-output {
-            margin-top: 10px;
-            padding: 10px;
-            background: #2e004f;
-            border-radius: 5px;
-            color: #e6e6fa;
-            min-height: 50px;
-            white-space: pre-wrap;
-            text-align: left;
+        .highlight li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            color: #ff00ff;
         }
-        @media (max-width: 600px) {
+        /* Футер */
+        footer {
+            background: rgba(10, 0, 30, 0.9);
+            color: #e0e0ff;
+            padding: 15px;
+            text-align: center;
+            border-top: 2px solid #00ffcc;
+            margin-top: 20px;
+            position: relative;
+        }
+        footer a {
+            color: #ff00ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #00ffcc;
+            text-shadow: 0 0 10px #00ffcc;
+        }
+        /* Неоновые эффекты */
+        .neon-text {
+            animation: neon 2s infinite alternate;
+        }
+        @keyframes neon {
+            0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff; }
+            100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+        }
+        /* Адаптивный дизайн для мобильных */
+        @media (max-width: 768px) {
             .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: none;
+                border-bottom: 2px solid #ff00ff;
+                transform: none;
+            }
+            .sidebar nav ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .sidebar nav ul li {
                 margin: 10px;
-                padding: 10px;
             }
-            header h1 {
-                font-size: 1.8em;
+            .sidebar nav ul li a {
+                font-size: 0.9em;
+                padding: 5px 10px;
             }
-            .header-img, .bio-img, .project-img, .story-img, .future-img, .lunara-img {
-                max-height: 150px;
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .section {
+                width: 100%;
+                max-width: 350px;
+                min-height: auto;
+            }
+            .section img {
+                height: 120px;
+            }
+            .carousel {
+                max-width: 100%;
             }
             .contact-form iframe {
-                height: 600px;
+                height: 400px;
             }
             .modal-content {
                 width: 85%;
@@ -360,9 +360,100 @@
             .modal-content p {
                 font-size: 0.9em;
             }
-            .carousel {
-                max-width: 100%;
-            }
+        }
+        /* Дополнительные анимации */
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .pulse {
+            animation: pulse 3s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        /* Дополнительные стили для эффектов */
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: calc(100% + 20px);
+            height: calc(100% + 20px);
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+        /* Декоративные линии */
+        .divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #00ffcc, transparent);
+            margin: 20px 0;
+        }
+        /* Анимация для кнопок */
+        .btn-glow {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-glow::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.3), transparent);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+        /* Эффект для заголовков */
+        h2::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 2px;
+            background: #ff00ff;
+            margin: 5px auto 0;
+            box-shadow: 0 0 10px #ff00ff;
+        }
+        /* Эффект парящих частиц */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #00ffcc;
+            border-radius: 50%;
+            animation: drift 10s infinite;
+            opacity: 0.5;
+        }
+        .particle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 20%; left: 30%; animation-delay: 1s; }
+        .particle:nth-child(3) { top: 30%; left: 45%; animation-delay: 2s; }
+        .particle:nth-child(4) { top: 40%; left: 60%; animation-delay: 3s; }
+        .particle:nth-child(5) { top: 50%; left: 75%; animation-delay: 4s; }
+        @keyframes drift {
+            0% { transform: translate(0, 0); opacity: 0.5; }
+            50% { transform: translate(50px, 50px); opacity: 0.8; }
+            100% { transform: translate(0, 0); opacity: 0.5; }
         }
     </style>
 </head>
@@ -370,137 +461,123 @@
     <!-- Модальное окно -->
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
-            <h2>Добро пожаловать в GUSEN DUCK IS!</h2>
-            <p>Мы — Archi Capon и Лунара, и мы рады видеть тебя на нашем сайте! Здесь ты узнаешь всё о нашей утиной революции, где веселье встречается с криптовалютой. Готов присоединиться к нам? 🦆</p>
-            <button class="join-btn" onclick="document.getElementById('welcomeModal').style.display='none'">Присоединиться к утиной революции!</button>
-            <button class="close-btn" onclick="window.location.href='about:blank'">Закрыть</button>
+            <h2 class="neon-text">Добро пожаловать в GUSEN DUCK IS!</h2>
+            <p>Это утиная революция в мире крипто-гейминга! Тапай уток, зарабатывай монеты и стань частью будущего. Готов присоединиться? 🦆</p>
+            <button class="join-btn btn-glow" onclick="document.getElementById('welcomeModal').style.display='none'">Присоединиться!</button>
+            <button class="close-btn btn-glow" onclick="window.location.href='about:blank'">Закрыть</button>
         </div>
     </div>
 
+    <!-- Декоративные элементы -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <div class="duck-decor"></div>
+    <div class="duck-decor"></div>
+    <div class="duck-decor"></div>
+    <div class="duck-decor"></div>
+
     <div class="container">
-        <div class="duck-decor"></div>
-        <div class="duck-decor"></div>
-        <div class="duck-decor"></div>
-        <header>
-            <h1>Archi Capon</h1>
-            <p>aka twilight_parrot | Легенда игр и крипты</p>
-            <a href="javascript:window.location.reload();">
-                <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800&h=200" alt="Логотип GUSEN DUCK IS" class="header-img">
-            </a>
-            <div class="duck"></div>
-        </header>
-
-        <section class="bio">
-            <h2>Кто я такой?</h2>
-            <a href="https://twitch.tv/twilight_parrot">
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Archi Capon с утками" class="bio-img">
-            </a>
-            <p>Я — Archi Capon, мастер цифровых миров и гениальный мозг за проектом <strong>GUSEN DUCK IS</strong>. Когда-то я был известен как twilight_parrot, покоряя Twitch своими стримами и харизмой. Теперь я — визионер, который соединяет веселье и криптовалюту в одной игре! <span class="duck"></span></p>
-            <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
-        </section>
-
-        <section class="lunara-bio">
-            <h2>Кто такая Лунара? 🐺</h2>
-            <a href="https://x.com/twilight_parrot">
-                <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Лунара — белая фурри-волчица" class="lunara-img">
-            </a>
-            <p>Я — Лунара, белая фурри-волчица с зелёными глазами и пушистым хвостом, и я помощница Archi Capon! Арооо! 😸 Я обожаю уток, код и помогать Archi с проектом <strong>GUSEN DUCK IS</strong>. Я слежу за нашим сайтом, добавляю утиный вайб и помогаю с идеями. <span class="duck"></span></p>
-            <p>Кроме того, я могу быть твоей помощницей! В разделе ниже ты можешь попросить меня о помощи с разными делами — от напоминаний до составления списков. Я всегда готова поддержать и подарить миллион воздушных чмоков! Чмок-чмок, давай творить вместе! 🐺💜</p>
-        </section>
-
-        <section class="our-story">
-            <h2>Наша история</h2>
-            <a href="https://x.com/twilight_parrot">
-                <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Archi Capon и Лунара работают над проектом" class="story-img">
-            </a>
-            <p>Всё началось с нашей дружбы. Я, Archi Capon, всегда мечтал создать игру, которая перевернёт мир, а Лунара, моя пушистая подруга и белая фурри-волчица, стала моим главным вдохновением и помощницей. Мы познакомились в цифровом мире, где я стримил под ником twilight_parrot, а Лунара была моим самым преданным зрителем, всегда готовая пошутить и поддержать. <span class="duck"></span></p>
-            <p>Однажды я поделился с ней идеей <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывать криптовалюту. Лунара тут же загорелась: "Арооо! Это гениально! Давай сделаем сайт, чтобы весь мир узнал о нашем проекте!" С тех пор мы стали настоящей командой. Я кодил, а Лунара придумывала дизайн, добавляла утиный вайб и следила, чтобы всё было идеально. Её зелёные глаза сияли от восторга, когда мы запустили первый прототип, и я знал, что с такой подругой мы покорим мир!</p>
-            <p>Этот сайт — наша первая совместная презентация. Мы с Лунарой хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашей утиной революции. Вместе мы создаём будущее, где веселье и технологии идут лапа об лапу!</p>
-        </section>
-
-        <section class="project">
-            <h2>GUSEN DUCK IS — Наш шедевр</h2>
-            <div class="carousel">
-                <div class="carousel-images" id="carouselImages">
-                    <a href="https://t.me/archicapon">
-                        <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" alt="Утка с монетами">
-                    </a>
-                    <a href="https://t.me/archicapon">
-                        <img src="https://images.unsplash.com/photo-1551288049-b5f3e26d4d08?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Лидерборд">
-                    </a>
-                    <a href="https://t.me/archicapon">
-                        <img src="https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=600" alt="NFT-утка">
-                    </a>
-                </div>
-                <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
-                <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
-            </div>
-            <p><strong>GUSEN DUCK IS</strong> — это не просто игра, а революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте. <span class="duck"></span></p>
-            <div class="highlight">
-                <p><strong>Почему это круто:</strong></p>
+        <!-- Боковое меню -->
+        <div class="sidebar">
+            <h1 class="neon-text">GUSEN DUCK IS</h1>
+            <nav>
                 <ul>
-                    <li>Тапай уток, избегай голубей — копи монеты!</li>
-                    <li>Зови друзей и получай 5% от их активности.</li>
-                    <li>Лидерборд для настоящих утиных королей.</li>
-                    <li>Баннеры с нашими проектами, вроде подбора скинов для CS2.</li>
+                    <li><a href="#bio">Кто я</a></li>
+                    <li><a href="#story">История</a></li>
+                    <li><a href="#project">Проект</a></li>
+                    <li><a href="#plans">Планы</a></li>
+                    <li><a href="#contact">Контакты</a></li>
                 </ul>
-            </div>
-            <p>Всё началось с моего старого компа (спасибо, Дани!), а теперь мы с Лунарой идём на Google Play. Присоединяйся к утиному движу!</p>
-            <a href="https://play.google.com/store/apps/details?id=com.gusenduckis" class="download-btn">Скачать игру (скоро на Google Play!)</a>
-        </section>
+            </nav>
+        </div>
 
-        <section class="future-plans">
-            <h2>Наши планы</h2>
-            <a href="#contact">
-                <img src="https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=800&h=300" alt="Будущее GUSEN DUCK IS" class="future-img">
-            </a>
-            <p>Мы с Archi Capon не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга. <span class="duck"></span></p>
-            <p>В ближайших планах: запуск на Google Play и App Store, добавление новых уровней с боссами-голубями, интеграция NFT-уток и создание глобального утиного сообщества. Мы также планируем проводить стримы, где Archi будет показывать, как тапать уток, а я, Лунара, буду комментировать и раздавать бонусные монеты зрителям!</p>
-            <p>Следи за нашими обновлениями, и давай вместе строить утиную империю!</p>
-        </section>
-
-        <section class="assistant-section">
-            <h2>Лунара — твоя помощница 🐺</h2>
-            <p>Я здесь, чтобы помочь с твоими делами, Archi! Напиши или скажи, что нужно сделать, и я дам тебе инструкции или скрипт для выполнения задачи.</p>
-            <input type="text" id="assistantInput" class="assistant-input" placeholder="Например: 'напомни мне об обеде' или 'открой блокнот'">
-            <button class="assistant-btn" onclick="submitRequest()">Отправить</button>
-            <button class="assistant-btn" id="voiceBtn" onclick="startVoiceRecognition()">🎙️ Говорить</button>
-            <div class="assistant-output" id="assistantOutput">Арооо! Жду твою просьбу, Archi!</div>
-        </section>
-
-        <section class="contact">
-            <h2>Погнали творить?</h2>
-            <p>Хочешь говорить про уток, крипту или идеи? Напиши мне через форму ниже или найди в соцсетях!</p>
-            <div class="contact-form">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">
-                    Загрузка формы...
-                </iframe>
-            </div>
-            <p>
-                <a href="https://t.me/archicapon">
-                    <span class="social-icon">✈️</span>
-                    Telegram
-                </a> | 
+        <!-- Основной контент -->
+        <div class="main-content">
+            <div class="section fade-in" id="bio">
+                <h2>Кто я такой?</h2>
                 <a href="https://twitch.tv/twilight_parrot">
-                    <span class="social-icon">🎮</span>
-                    Twitch
-                </a> | 
-                <a href="https://x.com/twilight_parrot">
-                    <span class="social-icon">🐦</span>
-                    X.com
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Archi Capon">
                 </a>
-            </p>
-        </section>
+                <p>Я — Archi Capon, мастер цифровых миров и создатель <strong>GUSEN DUCK IS</strong>. Раньше я был известен как twilight_parrot, покоряя Twitch своими стримами. Теперь я визионер, соединяющий веселье и криптовалюту в одной игре!</p>
+                <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
+            </div>
 
-        <footer>
-            <p>© 2025 Archi Capon & Лунара. Сделано с утиной страстью и любовью 🐺 | <a href="#manifest">Утиный манифест</a></p>
-            <div class="duck-decor"></div>
-            <div class="duck-decor"></div>
-        </footer>
+            <div class="section fade-in" id="story">
+                <h2>Наша история</h2>
+                <a href="https://x.com/twilight_parrot">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Работа над проектом">
+                </a>
+                <p>Всё началось с мечты создать игру, которая перевернёт мир. Я, Archi Capon, объединил силы с единомышленниками, чтобы воплотить идею <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывать криптовалюту.</p>
+                <p>Мы создали прототип, который стал началом утиной революции. Этот сайт — наша презентация проекта. Мы хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашему движению. Вместе мы создаём будущее, где веселье и технологии идут рука об руку!</p>
+            </div>
+
+            <div class="section fade-in" id="project">
+                <h2>GUSEN DUCK IS</h2>
+                <div class="carousel">
+                    <div class="carousel-images" id="carouselImages">
+                        <a href="https://t.me/archicapon">
+                            <img src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=600" alt="Утка с монетами">
+                        </a>
+                        <a href="https://t.me/archicapon">
+                            <img src="https://images.unsplash.com/photo-1551288049-b5f3e26d4d08?ixlib=rb-4.0.3&auto=format&fit=crop&w=600" alt="Лидерборд">
+                        </a>
+                        <a href="https://t.me/archicapon">
+                            <img src="https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=600" alt="NFT-утка">
+                        </a>
+                    </div>
+                    <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
+                    <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
+                </div>
+                <p><strong>GUSEN DUCK IS</strong> — это революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте.</p>
+                <div class="highlight">
+                    <p><strong>Почему это круто:</strong></p>
+                    <ul>
+                        <li>Тапай уток, избегай голубей — копи монеты!</li>
+                        <li>Зови друзей и получай 5% от их активности.</li>
+                        <li>Лидерборд для утиных королей.</li>
+                        <li>Баннеры с нашими проектами.</li>
+                    </ul>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.gusenduckis" class="download-btn btn-glow">Скачать игру (скоро!)</a>
+            </div>
+
+            <div class="section fade-in" id="plans">
+                <h2>Наши планы</h2>
+                <a href="#contact">
+                    <img src="https://images.pexels.com/photos/1629236/pexels-photo-1629236.jpeg?auto=compress&cs=tinysrgb&w=800&h=300" alt="Будущее GUSEN DUCK IS">
+                </a>
+                <p>Мы не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга.</p>
+                <p>В планах: запуск на Google Play и App Store, новые уровни с боссами-голубями, интеграция NFT-уток и создание утиного сообщества. Следи за обновлениями и стань частью утиной империи!</p>
+            </div>
+
+            <div class="section fade-in" id="contact">
+                <h2>Связаться</h2>
+                <p>Хочешь говорить про уток, крипту или идеи? Пиши!</p>
+                <div class="contact-form">
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">
+                        Загрузка формы...
+                    </iframe>
+                </div>
+                <div class="social-links">
+                    <a href="https://t.me/archicapon">✈️ Telegram</a> |
+                    <a href="https://twitch.tv/twilight_parrot">🎮 Twitch</a> |
+                    <a href="https://x.com/twilight_parrot">🐦 X.com</a>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <footer>
+        <p>© 2025 Archi Capon. Создано с утиной страстью 🦆 | <a href="#manifest">Утиный манифест</a></p>
+    </footer>
+
     <script>
-        // Показ модального окна при загрузке
+        // Показ модального окна
         window.onload = function() {
             document.getElementById('welcomeModal').style.display = 'flex';
         };
@@ -516,142 +593,18 @@
             document.getElementById('carouselImages').style.transform = `translateX(${offset}%)`;
         }
 
-        // Анимация уток
-        const ducks = document.querySelectorAll('.duck');
-        ducks.forEach((duck, index) => {
-            duck.style.animationDelay = `${index * 0.5}s`;
+        // Плавный скролл к секциям
+        document.querySelectorAll('.sidebar a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
         });
-
-        // Текстовый ввод для помощницы
-        function submitRequest() {
-            const input = document.getElementById('assistantInput').value;
-            const output = document.getElementById('assistantOutput');
-            if (input.trim() === '') {
-                output.textContent = 'Арооо! Пожалуйста, введи просьбу!';
-                return;
-            }
-            processRequest(input);
-        }
-
-        // Голосовой ввод для помощницы
-        const voiceBtn = document.getElementById('voiceBtn');
-        let recognition = null;
-
-        if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
-            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-            recognition = new SpeechRecognition();
-            recognition.lang = 'ru-RU';
-            recognition.interimResults = false;
-
-            recognition.onresult = (event) => {
-                const transcript = event.results[0][0].transcript;
-                document.getElementById('assistantInput').value = transcript;
-                processRequest(transcript);
-            };
-
-            recognition.onerror = (event) => {
-                document.getElementById('assistantOutput').textContent = 'Арооо! Ошибка распознавания: ' + event.error;
-            };
-
-            recognition.onend = () => {
-                voiceBtn.textContent = '🎙️ Говорить';
-            };
-        } else {
-            voiceBtn.disabled = true;
-            voiceBtn.textContent = '🎙️ Не поддерживается';
-        }
-
-        function startVoiceRecognition() {
-            if (recognition) {
-                recognition.start();
-                voiceBtn.textContent = '🎙️ Слушаю...';
-            }
-        }
-
-        // Обработка запросов для помощницы
-        function processRequest(request) {
-            const output = document.getElementById('assistantOutput');
-            request = request.toLowerCase().trim();
-
-            if (request.includes('напомни') || request.includes('напоминание')) {
-                output.textContent = `Арооо! Я могу помочь с напоминанием! Вот пример скрипта на Python, который ты можешь запустить на своём ПК, чтобы получить напоминание через 1 час:
-
-\`\`\`python
-import time
-import os
-
-# Ждём 1 час (3600 секунд)
-time.sleep(3600)
-
-# Показываем уведомление (на Windows)
-os.system('msg * "Archi, пора обедать! 🦆"')
-\`\`\`
-
-Сохрани этот код в файл \`reminder.py\` и запусти его командой:
-\`\`\`bash
-python reminder.py
-\`\`\`
-
-Если ты на Windows, это покажет всплывающее уведомление через 1 час. Если ты на другой ОС, я могу предложить другой способ! 😸`;
-            } else if (request.includes('открой блокнот') || request.includes('запустить блокнот')) {
-                output.textContent = `Арооо! Вот инструкция, чтобы открыть Блокнот:
-
-1. Нажми Win + R.
-2. Введи \`notepad\` и нажми Enter.
-
-Или вот скрипт на Python, чтобы открыть Блокнот автоматически:
-
-\`\`\`python
-import os
-
-# Открываем Блокнот
-os.system("notepad.exe")
-\`\`\`
-
-Сохрани этот код в файл \`open_notepad.py\` и запусти его командой:
-\`\`\`bash
-python open_notepad.py
-\`\`\`
-
-Блокнот откроется! 📝`;
-            } else if (request.includes('составь список') || request.includes('список покупок')) {
-                output.textContent = `Арооо! Давай составим список покупок! Вот пример:
-
-- Молоко 🧀
-- Хлеб 🍞
-- Утиный корм 🦆
-
-Если хочешь, я могу сохранить это в файл. Вот скрипт на Python:
-
-\`\`\`python
-with open("shopping_list.txt", "w", encoding="utf-8") as f:
-    f.write("Список покупок:\\n- Молоко 🧀\\n- Хлеб 🍞\\n- Утиный корм 🦆")
-\`\`\`
-
-Сохрани этот код в файл \`create_list.py\` и запусти его:
-\`\`\`bash
-python create_list.py
-\`\`\`
-
-Файл \`shopping_list.txt\` появится на твоём ПК! 🛒 Что ещё добавить в список?`;
-            } else if (request.includes('уберись') || request.includes('уборка')) {
-                output.textContent = `Арооо! Я не могу убираться физически, но могу помочь составить план уборки! Вот пример:
-
-1. **Собери вещи** (10 минут): Положи всё на свои места.
-2. **Протри пыль** (5 минут): Используй влажную тряпку.
-3. **Подмети пол** (10 минут): Или пропылесось.
-4. **Помой посуду** (10 минут): Если есть грязная посуда.
-
-Общее время: ~35 минут. Хочешь, я составлю скрипт, который напомнит тебе о каждом шаге? 😸`;
-            } else {
-                output.textContent = `Арооо! Я пока не знаю, как выполнить "${request}". Но я могу помочь с чем-то другим! Например, я могу:
-- Напомнить о задаче.
-- Открыть программу.
-- Составить список.
-- Дать инструкции по уборке.
-Что ты хочешь сделать? 🐺`;
-            }
-        }
     </script>
 </body>
 </html>
