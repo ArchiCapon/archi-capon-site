@@ -6,7 +6,7 @@
     <meta name="description" content="GUSEN DUCK IS — тапай уток, зарабатывай крипту!">
     <meta name="theme-color" content="#0a0a23">
     <title>GUSEN DUCK IS - Утиная революция</title>
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/archi-capon-site/manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -250,7 +250,7 @@
         <div class="account-content">
             <h2>Вход / Регистрация</h2>
             <input type="text" placeholder="Email" id="username">
-            <input type="password" placeholder="Пароль" id="password">
+            <input type="password" placeholder="Пароль (мин. 6 символов)" id="password">
             <button onclick="login()">Войти</button>
             <button onclick="register()">Зарегистрироваться</button>
             <button onclick="document.getElementById('accountModal').classList.remove('active')">Закрыть</button>
@@ -261,7 +261,7 @@
         <section id="home">
             <div class="hero-text">
                 <h2>Тапай уток, властвуй в крипте!</h2>
-                <p>Добро пожаловать в **GUSEN DUCK IS**! Тапай уток, зарабатывай крипту и стань частью утиной революции!</p>
+                <p>Добро пожаловать в <strong>GUSEN DUCK IS</strong>! Тапай уток, зарабатывай крипту и стань частью утиной революции!</p>
                 <button class="tap-duck">Тапнуть утку!</button>
                 <p class="tap-count">Тапов: 0</p>
             </div>
@@ -270,14 +270,14 @@
 
         <section id="gallery">
             <h2>Галерея уток</h2>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/200?text=NFT+Duck+1')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/200?text=NFT+Duck+2')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/200?text=NFT+Duck+3')"></div>
+            <div class="gallery-item" style="background-image: url('https://img.icons8.com/emoji/200/duck.png')"></div>
+            <div class="gallery-item" style="background-image: url('https://img.icons8.com/emoji/200/duck.png')"></div>
+            <div class="gallery-item" style="background-image: url('https://img.icons8.com/emoji/200/duck.png')"></div>
         </section>
 
         <section id="manifest">
             <h2>Утиный манифест</h2>
-            <p>Мы — утки цифрового космоса! **GUSEN DUCK IS** — это революция.</p>
+            <p>Мы — утки цифрового космоса! <strong>GUSEN DUCK IS</strong> — это революция.</p>
             <ul>
                 <li>Тапай и побеждай: каждый тап — монета!</li>
                 <li>Крипта твоя: 20% прибыли твои.</li>
@@ -344,6 +344,8 @@
                 if (auth.currentUser) {
                     database.ref('users/' + auth.currentUser.uid).set({
                         taps: tapCount
+                    }).catch(err => {
+                        alert(`Ошибка сохранения тапов: ${err.message}`);
                     });
                 }
             });
@@ -365,7 +367,17 @@
                     accountModal.classList.remove('active');
                     accountBtn.textContent = `👤 ${username}`;
                 })
-                .catch(err => alert(`Ошибка: ${err.message}`));
+                .catch(err => {
+                    if (err.code === 'auth/wrong-password') {
+                        alert('Неверный пароль!');
+                    } else if (err.code === 'auth/user-not-found') {
+                        alert('Пользователь не найден!');
+                    } else if (err.code === 'auth/invalid-email') {
+                        alert('Неверный email!');
+                    } else {
+                        alert(`Ошибка: ${err.message}`);
+                    }
+                });
         }
 
         function register() {
@@ -377,7 +389,17 @@
                     accountModal.classList.remove('active');
                     accountBtn.textContent = `👤 ${username}`;
                 })
-                .catch(err => alert(`Ошибка: ${err.message}`));
+                .catch(err => {
+                    if (err.code === 'auth/weak-password') {
+                        alert('Пароль слишком короткий (минимум 6 символов)!');
+                    } else if (err.code === 'auth/email-already-in-use') {
+                        alert('Этот email уже зарегистрирован!');
+                    } else if (err.code === 'auth/invalid-email') {
+                        alert('Неверный email!');
+                    } else {
+                        alert(`Ошибка: ${err.message}`);
+                    }
+                });
         }
 
         auth.onAuthStateChanged(user => {
@@ -406,6 +428,8 @@
                     user,
                     text: message,
                     timestamp: Date.now()
+                }).catch(err => {
+                    alert(`Ошибка отправки сообщения: ${err.message}`);
                 });
                 input.value = '';
             }
@@ -434,7 +458,8 @@
 
         // PWA
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js').catch(err => console.error('Service Worker error:', err));
+            navigator.serviceWorker.register('/archi-capon-site/service-worker.js')
+                .catch(err => console.error('Service Worker error:', err));
         }
     </script>
 </body>
