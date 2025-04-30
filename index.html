@@ -6,7 +6,7 @@
     <meta name="description" content="GUSEN DUCK IS — тапай уток, зарабатывай крипту!">
     <meta name="theme-color" content="#0a0a23">
     <title>GUSEN DUCK IS - Утиная революция</title>
-    <link rel="manifest" href="/archi-capon-site/manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -46,7 +46,7 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2em;
         }
-        .account-btn, .theme-toggle {
+        .theme-toggle {
             background: none;
             border: none;
             font-size: 1.5em;
@@ -137,85 +137,6 @@
             position: absolute;
             left: 0;
         }
-        #chat {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 20px;
-        }
-        .chat-box {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            padding: 10px;
-            max-height: 200px;
-            overflow-y: auto;
-        }
-        .chat-message {
-            margin: 5px 0;
-            padding: 5px;
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-        .chat-input {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        .chat-input input {
-            flex: 1;
-            padding: 5px;
-            border-radius: 5px;
-            border: none;
-            background: rgba(255, 255, 255, 0.2);
-            color: inherit;
-        }
-        .chat-input button {
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: none;
-            background: #ff00ff;
-            color: #e0e0ff;
-        }
-        .account-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 200;
-            justify-content: center;
-            align-items: center;
-        }
-        .account-modal.active {
-            display: flex;
-        }
-        .account-content {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            max-width: 300px;
-        }
-        .account-content input {
-            width: 100%;
-            padding: 5px;
-            margin: 5px 0;
-            border-radius: 5px;
-            border: none;
-            background: rgba(255, 255, 255, 0.2);
-            color: inherit;
-        }
-        .account-content button {
-            padding: 5px 10px;
-            border-radius: 5px;
-            border: none;
-            background: #ff00ff;
-            color: #e0e0ff;
-            margin: 5px;
-        }
         footer {
             text-align: center;
             padding: 20px;
@@ -241,21 +162,9 @@
     <header>
         <h1>GUSEN DUCK IS</h1>
         <div>
-            <button class="account-btn" aria-label="Аккаунт">👤</button>
             <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
         </div>
     </header>
-
-    <div class="account-modal" id="accountModal">
-        <div class="account-content">
-            <h2>Вход / Регистрация</h2>
-            <input type="text" placeholder="Email" id="username">
-            <input type="password" placeholder="Пароль (мин. 6 символов)" id="password">
-            <button onclick="login()">Войти</button>
-            <button onclick="register()">Зарегистрироваться</button>
-            <button onclick="document.getElementById('accountModal').classList.remove('active')">Закрыть</button>
-        </div>
-    </div>
 
     <div class="container">
         <section id="home">
@@ -285,41 +194,13 @@
                 <li>Будущее за нами: веселье и технологии.</li>
             </ul>
         </section>
-
-        <section id="chat">
-            <h2>Утиный чат</h2>
-            <div class="chat-box" id="chatBox">
-                <div class="chat-message">Добро пожаловать в утиный чат! 🦆</div>
-            </div>
-            <div class="chat-input">
-                <input type="text" id="chatInput" placeholder="Напиши сообщение...">
-                <button onclick="sendMessage()">Отправить</button>
-            </div>
-        </section>
     </div>
 
     <footer>
         <p>© 2025 Archi Capon & Лаура. С утиной страстью 🦆</p>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js"></script>
     <script>
-        // Firebase конфигурация
-        const firebaseConfig = {
-            apiKey: "AIzaSyDZ3PvaDqxKTVgj4e1LMAO0o4k6uJtOZ14",
-            authDomain: "gusenduckis.firebaseapp.com",
-            projectId: "gusenduckis",
-            storageBucket: "gusenduckis.firebasestorage.app",
-            messagingSenderId: "505359329471",
-            appId: "1:505359329471:web:eb9c2c906db62e8fb7fe0a",
-            measurementId: "G-QG9B9ZP6GG"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const auth = firebase.auth();
-        const database = firebase.database();
-
         // Тема
         const themeToggle = document.querySelector('.theme-toggle');
         const body = document.body;
@@ -336,113 +217,14 @@
         }
 
         // Тапы
-        let tapCount = 0;
+        let tapCount = localStorage.getItem('tapCount') || 0;
+        document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
         document.querySelectorAll('.tap-duck').forEach(btn => {
             btn.addEventListener('click', () => {
                 tapCount++;
                 document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
-                if (auth.currentUser) {
-                    database.ref('users/' + auth.currentUser.uid).set({
-                        taps: tapCount
-                    }).catch(err => {
-                        alert(`Ошибка сохранения тапов: ${err.message}`);
-                    });
-                }
+                localStorage.setItem('tapCount', tapCount);
             });
-        });
-
-        // Аккаунты
-        const accountBtn = document.querySelector('.account-btn');
-        const accountModal = document.getElementById('accountModal');
-        accountBtn.addEventListener('click', () => {
-            accountModal.classList.add('active');
-        });
-
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            auth.signInWithEmailAndPassword(username, password)
-                .then(user => {
-                    alert(`Привет, ${username}!`);
-                    accountModal.classList.remove('active');
-                    accountBtn.textContent = `👤 ${username}`;
-                })
-                .catch(err => {
-                    if (err.code === 'auth/wrong-password') {
-                        alert('Неверный пароль!');
-                    } else if (err.code === 'auth/user-not-found') {
-                        alert('Пользователь не найден!');
-                    } else if (err.code === 'auth/invalid-email') {
-                        alert('Неверный email!');
-                    } else {
-                        alert(`Ошибка: ${err.message}`);
-                    }
-                });
-        }
-
-        function register() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            auth.createUserWithEmailAndPassword(username, password)
-                .then(user => {
-                    alert(`Добро пожаловать, ${username}!`);
-                    accountModal.classList.remove('active');
-                    accountBtn.textContent = `👤 ${username}`;
-                })
-                .catch(err => {
-                    if (err.code === 'auth/weak-password') {
-                        alert('Пароль слишком короткий (минимум 6 символов)!');
-                    } else if (err.code === 'auth/email-already-in-use') {
-                        alert('Этот email уже зарегистрирован!');
-                    } else if (err.code === 'auth/invalid-email') {
-                        alert('Неверный email!');
-                    } else {
-                        alert(`Ошибка: ${err.message}`);
-                    }
-                });
-        }
-
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                accountBtn.textContent = `👤 ${user.email}`;
-                database.ref('users/' + user.uid).once('value').then(snapshot => {
-                    if (snapshot.exists()) {
-                        tapCount = snapshot.val().taps || 0;
-                        document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
-                    }
-                });
-            } else {
-                accountBtn.textContent = '👤';
-                tapCount = 0;
-                document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
-            }
-        });
-
-        // Чат
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            if (message) {
-                const user = auth.currentUser ? auth.currentUser.email : 'Гость';
-                database.ref('chat').push({
-                    user,
-                    text: message,
-                    timestamp: Date.now()
-                }).catch(err => {
-                    alert(`Ошибка отправки сообщения: ${err.message}`);
-                });
-                input.value = '';
-            }
-        }
-
-        database.ref('chat').limitToLast(20).on('child_added', (snapshot) => {
-            const msg = snapshot.val();
-            const chatBox = document.getElementById('chatBox');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'chat-message';
-            messageDiv.textContent = `${msg.user}: ${msg.text} 🦆`;
-            chatBox.appendChild(messageDiv);
-            chatBox.scrollTop = chatBox.scrollHeight;
         });
 
         // Анимация скролла
@@ -458,8 +240,8 @@
 
         // PWA
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/archi-capon-site/service-worker.js')
-                .catch(err => console.error('Service Worker error:', err));
+            navigator.serviceWorker.register('/service-worker.js')
+                .catch(err => console.log('Service Worker не работает: ', err));
         }
     </script>
 </body>
