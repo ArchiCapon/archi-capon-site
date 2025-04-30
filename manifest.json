@@ -5,16 +5,22 @@
     "display": "standalone",
     "background_color": "#0a0a23",
     "theme_color": "#0a0a23",
+    "description": "GUSEN DUCK IS — тапай уток, зарабатывай крипту! Присоединяйся к утиной революции!",
+    "lang": "ru",
+    "dir": "ltr",
+    "orientation": "portrait",
     "icons": [
         {
             "src": "https://img.icons8.com/emoji/192/duck.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "https://img.icons8.com/emoji/512/duck.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         }
     ]
 }
