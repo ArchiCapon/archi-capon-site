@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="GUSEN DUCK IS — тапай уток, зарабатывай крипту! Присоединяйся к утиной революции 2025.">
-    <meta name="keywords" content="GUSEN DUCK IS, крипто-игра, утиная игра, Archi Capon">
+    <meta name="description" content="GUSEN DUCK IS — тапай уток, зарабатывай крипту!">
     <meta name="theme-color" content="#0a0a23">
     <title>GUSEN DUCK IS - Утиная революция</title>
     <link rel="manifest" href="/manifest.json">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Общие стили */
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +17,6 @@
         body {
             font-family: 'Inter', sans-serif;
             transition: background 0.3s, color 0.3s;
-            overflow-x: hidden;
         }
         .dark-theme {
             background: linear-gradient(135deg, #0a0a23, #1a0033);
@@ -30,12 +27,10 @@
             color: #1a1a3d;
         }
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 20px;
         }
-
-        /* Хедер */
         header {
             display: flex;
             justify-content: space-between;
@@ -46,41 +41,23 @@
             border-radius: 15px;
             position: sticky;
             top: 0;
-            z-index: 100;
         }
         header h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5em;
-        }
-        .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-        .nav-links a {
-            color: inherit;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
-        .nav-links a:hover {
-            color: #00ffcc;
+            font-size: 2em;
         }
         .account-btn, .theme-toggle {
             background: none;
             border: none;
             font-size: 1.5em;
             cursor: pointer;
-            color: inherit;
-            margin-left: 20px;
+            margin-left: 10px;
         }
-
-        /* Секции */
         section {
-            margin: 80px 0;
+            margin: 40px 0;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(20px);
             transition: opacity 0.5s, transform 0.5s;
-            min-height: 60vh;
         }
         section.visible {
             opacity: 1;
@@ -88,182 +65,117 @@
         }
         section h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3em;
-            margin-bottom: 30px;
+            font-size: 2.5em;
+            margin-bottom: 20px;
             background: linear-gradient(90deg, #ff00ff, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        section p {
-            font-size: 1.2em;
-            line-height: 1.6;
-            max-width: 800px;
-        }
-
-        /* Главная секция */
         #home {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 60px;
-            min-height: 90vh;
+            gap: 20px;
+            min-height: 70vh;
         }
         #home .hero-text {
             max-width: 50%;
         }
-        #home .hero-text p {
-            margin: 20px 0;
-        }
         .tap-duck {
             background: #ff00ff;
             color: #e0e0ff;
-            padding: 15px 40px;
-            border-radius: 12px;
+            padding: 10px 20px;
+            border-radius: 8px;
             border: none;
-            font-size: 1.3em;
+            font-size: 1.2em;
             cursor: pointer;
-            transition: transform 0.3s, background 0.3s;
         }
         .light-theme .tap-duck {
             background: #1a1a3d;
             color: #e0e0ff;
         }
         .tap-duck:hover {
-            transform: scale(1.1);
             background: #00ffcc;
-        }
-        .tap-count {
-            margin-top: 15px;
-            font-size: 1.2em;
         }
         .hero-image {
             width: 40%;
-            height: 400px;
-            background: url('https://img.icons8.com/emoji/400/duck.png') no-repeat center;
+            height: 200px;
+            background: url('https://img.icons8.com/emoji/200/duck.png') no-repeat center;
             background-size: contain;
-            filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.5));
-            animation: float 4s infinite ease-in-out;
         }
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
-            100% { transform: translateY(0); }
-        }
-
-        /* Как это работает */
-        #how-it-works {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-        }
-        .card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
-        }
-
-        /* Галерея */
         #gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
         }
         .gallery-item {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            height: 200px;
+            border-radius: 10px;
+            height: 150px;
             background-size: cover;
             background-position: center;
-            transition: transform 0.3s;
         }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-
-        /* Манифест */
         #manifest {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 60px;
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
         }
         #manifest ul {
             list-style: none;
-            margin: 30px 0;
+            margin: 20px 0;
         }
         #manifest ul li {
-            font-size: 1.3em;
-            margin: 20px 0;
-            padding-left: 40px;
+            font-size: 1.1em;
+            margin: 10px 0;
+            padding-left: 30px;
             position: relative;
         }
         #manifest ul li::before {
             content: "🦆";
             position: absolute;
             left: 0;
-            font-size: 1.5em;
         }
-
-        /* Чат */
         #chat {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 40px;
-            max-width: 600px;
-            margin: 0 auto;
+            border-radius: 10px;
+            padding: 20px;
         }
         .chat-box {
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 20px;
-            max-height: 300px;
+            border-radius: 5px;
+            padding: 10px;
+            max-height: 200px;
             overflow-y: auto;
-            margin-bottom: 20px;
         }
         .chat-message {
-            margin: 10px 0;
-            padding: 10px;
+            margin: 5px 0;
+            padding: 5px;
             border-radius: 5px;
             background: rgba(255, 255, 255, 0.1);
         }
         .chat-input {
             display: flex;
             gap: 10px;
+            margin-top: 10px;
         }
         .chat-input input {
             flex: 1;
-            padding: 10px;
+            padding: 5px;
             border-radius: 5px;
             border: none;
             background: rgba(255, 255, 255, 0.2);
             color: inherit;
         }
         .chat-input button {
-            padding: 10px 20px;
+            padding: 5px 10px;
             border-radius: 5px;
             border: none;
             background: #ff00ff;
             color: #e0e0ff;
-            cursor: pointer;
         }
-        .chat-input button:hover {
-            background: #00ffcc;
-        }
-
-        /* Аккаунт */
         .account-modal {
             display: none;
             position: fixed;
@@ -282,76 +194,36 @@
         .account-content {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            max-width: 400px;
-            width: 90%;
-        }
-        .account-content h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
+            max-width: 300px;
         }
         .account-content input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 5px;
+            margin: 5px 0;
             border-radius: 5px;
             border: none;
             background: rgba(255, 255, 255, 0.2);
             color: inherit;
         }
         .account-content button {
-            padding: 10px 20px;
+            padding: 5px 10px;
             border-radius: 5px;
             border: none;
             background: #ff00ff;
             color: #e0e0ff;
-            cursor: pointer;
-            margin: 10px;
+            margin: 5px;
         }
-        .account-content button:hover {
-            background: #00ffcc;
-        }
-
-        /* Футер */
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            margin-top: 60px;
+            border-radius: 10px;
         }
-        footer p {
-            font-size: 1em;
-        }
-        footer a {
-            color: #00ffcc;
-            text-decoration: none;
-        }
-        footer a:hover {
-            color: #ff00ff;
-        }
-
-        /* Анимации */
-        @keyframes neon {
-            0% { filter: drop-shadow(0 0 10px #ff00ff); }
-            100% { filter: drop-shadow(0 0 10px #00ffcc); }
-        }
-        .neon-btn {
-            animation: neon 2s infinite alternate;
-        }
-
-        /* Адаптивность */
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
             #home {
                 flex-direction: column;
                 text-align: center;
@@ -359,15 +231,8 @@
             #home .hero-text {
                 max-width: 100%;
             }
-            #home .hero-image {
+            .hero-image {
                 width: 80%;
-                height: 250px;
-            }
-            section h2 {
-                font-size: 2em;
-            }
-            #manifest, #chat {
-                padding: 30px;
             }
         }
     </style>
@@ -375,23 +240,16 @@
 <body class="dark-theme">
     <header>
         <h1>GUSEN DUCK IS</h1>
-        <div class="nav-links">
-            <a href="#home">Главная</a>
-            <a href="#how-it-works">Как это работает</a>
-            <a href="#manifest">Манифест</a>
-            <a href="#gallery">Галерея</a>
-            <a href="#chat">Чат</a>
-            <a href="#contact">Контакты</a>
+        <div>
+            <button class="account-btn" aria-label="Аккаунт">👤</button>
+            <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
         </div>
-        <button class="account-btn" aria-label="Аккаунт">👤</button>
-        <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
     </header>
 
-    <!-- Модал аккаунта -->
     <div class="account-modal" id="accountModal">
         <div class="account-content">
             <h2>Вход / Регистрация</h2>
-            <input type="text" placeholder="Имя пользователя" id="username">
+            <input type="text" placeholder="Email" id="username">
             <input type="password" placeholder="Пароль" id="password">
             <button onclick="login()">Войти</button>
             <button onclick="register()">Зарегистрироваться</button>
@@ -403,57 +261,29 @@
         <section id="home">
             <div class="hero-text">
                 <h2>Тапай уток, властвуй в крипте!</h2>
-                <p>Добро пожаловать в **GUSEN DUCK IS** — игру, где каждый тап превращает уток в крипту. Зарабатывай 20% прибыли от обработки данных и стань частью утиной революции 2025!</p>
-                <button class="tap-duck neon-btn">Тапнуть утку!</button>
+                <p>Добро пожаловать в **GUSEN DUCK IS**! Тапай уток, зарабатывай крипту и стань частью утиной революции!</p>
+                <button class="tap-duck">Тапнуть утку!</button>
                 <p class="tap-count">Тапов: 0</p>
             </div>
             <div class="hero-image"></div>
         </section>
 
-        <section id="how-it-works">
-            <h2>Как это работает?</h2>
-            <div class="card">
-                <h3>Тапай уток</h3>
-                <p>Нажимай на уток в игре, чтобы зарабатывать монеты. Каждый тап — шаг к богатству!</p>
-            </div>
-            <div class="card">
-                <h3>Зарабатывай крипту</h3>
-                <p>Получай 20% прибыли от обработки игровых данных в виде криптовалюты.</p>
-            </div>
-            <div class="card">
-                <h3>Зови друзей</h3>
-                <p>Приглашай друзей через реферальную ссылку и получай 5% их монет!</p>
-            </div>
-        </section>
-
         <section id="gallery">
             <h2>Галерея уток</h2>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/250?text=NFT+Duck+1')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/250?text=NFT+Duck+2')"></div>
-            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/250?text=NFT+Duck+3')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/200?text=NFT+Duck+1')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/200?text=NFT+Duck+2')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/200?text=NFT+Duck+3')"></div>
         </section>
 
         <section id="manifest">
             <h2>Утиный манифест</h2>
-            <p>Мы — утки цифрового космоса, и наш тап зажигает звёзды! **GUSEN DUCK IS** — это революция.</p>
+            <p>Мы — утки цифрового космоса! **GUSEN DUCK IS** — это революция.</p>
             <ul>
                 <li>Тапай и побеждай: каждый тап — монета!</li>
                 <li>Крипта твоя: 20% прибыли твои.</li>
                 <li>Стая — наша сила: зови друзей!</li>
                 <li>Будущее за нами: веселье и технологии.</li>
             </ul>
-            <button class="tap-duck neon-btn">Присоединиться к стае!</button>
-        </section>
-
-        <section id="eula">
-            <h2>Лицензионное соглашение (EULA)</h2>
-            <p>Устанавливая **GUSEN DUCK IS**, вы соглашаетесь:</p>
-            <ul>
-                <li>Игра использует до 20% ресурсов устройства.</li>
-                <li>Вы получаете 20% дохода в крипте.</li>
-                <li>Риски (нагрев, износ батареи) на вас.</li>
-            </ul>
-            <p><a href="[ссылка на PDF]" target="_blank">Полный текст EULA</a></p>
         </section>
 
         <section id="chat">
@@ -466,27 +296,31 @@
                 <button onclick="sendMessage()">Отправить</button>
             </div>
         </section>
-
-        <section id="contact">
-            <h2>Связаться</h2>
-            <p>Готов тапать уток? Пиши нам!</p>
-            <div class="contact-form">
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">Загрузка...</iframe>
-            </div>
-            <div class="social-links">
-                <a href="https://t.me/archicapon">✈️ Telegram</a>
-                <a href="https://twitch.tv/twilight_parrot">🎮 Twitch</a>
-                <a href="https://x.com/ArchiCapon">🐦 X.com</a>
-            </div>
-        </section>
     </div>
 
     <footer>
-        <p>© 2025 Archi Capon & Лаура. С утиной страстью 🦆 | <a href="#manifest">Манифест</a> | <a href="#eula">EULA</a></p>
+        <p>© 2025 Archi Capon & Лаура. С утиной страстью 🦆</p>
     </footer>
 
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js"></script>
     <script>
-        // Смена темы
+        // Firebase конфигурация
+        const firebaseConfig = {
+            apiKey: "AIzaSyDZ3PvaDqxKTVgj4e1LMAO0o4k6uJtOZ14",
+            authDomain: "gusenduckis.firebaseapp.com",
+            projectId: "gusenduckis",
+            storageBucket: "gusenduckis.firebasestorage.app",
+            messagingSenderId: "505359329471",
+            appId: "1:505359329471:web:eb9c2c906db62e8fb7fe0a",
+            measurementId: "G-QG9B9ZP6GG"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const database = firebase.database();
+
+        // Тема
         const themeToggle = document.querySelector('.theme-toggle');
         const body = document.body;
         themeToggle.addEventListener('click', () => {
@@ -501,13 +335,90 @@
             themeToggle.textContent = '☀️';
         }
 
-        // Тап-уточка
+        // Тапы
         let tapCount = 0;
         document.querySelectorAll('.tap-duck').forEach(btn => {
             btn.addEventListener('click', () => {
                 tapCount++;
                 document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
+                if (auth.currentUser) {
+                    database.ref('users/' + auth.currentUser.uid).set({
+                        taps: tapCount
+                    });
+                }
             });
+        });
+
+        // Аккаунты
+        const accountBtn = document.querySelector('.account-btn');
+        const accountModal = document.getElementById('accountModal');
+        accountBtn.addEventListener('click', () => {
+            accountModal.classList.add('active');
+        });
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            auth.signInWithEmailAndPassword(username, password)
+                .then(user => {
+                    alert(`Привет, ${username}!`);
+                    accountModal.classList.remove('active');
+                    accountBtn.textContent = `👤 ${username}`;
+                })
+                .catch(err => alert(`Ошибка: ${err.message}`));
+        }
+
+        function register() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            auth.createUserWithEmailAndPassword(username, password)
+                .then(user => {
+                    alert(`Добро пожаловать, ${username}!`);
+                    accountModal.classList.remove('active');
+                    accountBtn.textContent = `👤 ${username}`;
+                })
+                .catch(err => alert(`Ошибка: ${err.message}`));
+        }
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                accountBtn.textContent = `👤 ${user.email}`;
+                database.ref('users/' + user.uid).once('value').then(snapshot => {
+                    if (snapshot.exists()) {
+                        tapCount = snapshot.val().taps || 0;
+                        document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
+                    }
+                });
+            } else {
+                accountBtn.textContent = '👤';
+                tapCount = 0;
+                document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
+            }
+        });
+
+        // Чат
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (message) {
+                const user = auth.currentUser ? auth.currentUser.email : 'Гость';
+                database.ref('chat').push({
+                    user,
+                    text: message,
+                    timestamp: Date.now()
+                });
+                input.value = '';
+            }
+        }
+
+        database.ref('chat').limitToLast(20).on('child_added', (snapshot) => {
+            const msg = snapshot.val();
+            const chatBox = document.getElementById('chatBox');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message';
+            messageDiv.textContent = `${msg.user}: ${msg.text} 🦆`;
+            chatBox.appendChild(messageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
         });
 
         // Анимация скролла
@@ -520,39 +431,6 @@
             });
         }, { threshold: 0.1 });
         sections.forEach(section => observer.observe(section));
-
-        // Аккаунт
-        const accountBtn = document.querySelector('.account-btn');
-        const accountModal = document.getElementById('accountModal');
-        accountBtn.addEventListener('click', () => {
-            accountModal.classList.add('active');
-        });
-
-        function login() {
-            const username = document.getElementById('username').value;
-            alert(`Вход: ${username}. Реализуйте бэкенд для аутентификации!`);
-        }
-
-        function register() {
-            const username = document.getElementById('username').value;
-            alert(`Регистрация: ${username}. Реализуйте бэкенд для регистрации!`);
-        }
-
-        // Чат
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            if (message) {
-                const chatBox = document.getElementById('chatBox');
-                const messageDiv = document.createElement('div');
-                messageDiv.className = 'chat-message';
-                messageDiv.textContent = `Гость: ${message} 🦆`;
-                chatBox.appendChild(messageDiv);
-                chatBox.scrollTop = chatBox.scrollHeight;
-                input.value = '';
-                // Для реального чата подключите WebSocket, например, с Socket.IO
-            }
-        }
 
         // PWA
         if ('serviceWorker' in navigator) {
