@@ -36,7 +36,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 20px;
@@ -46,24 +46,24 @@
         }
         header h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 3em;
+            font-size: 2.5em;
             background: linear-gradient(90deg, #ff00ff, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .account-btn, .theme-toggle {
+        .account-btn, .theme-toggle, .license-btn {
             background: none;
             border: none;
-            font-size: 2em;
+            font-size: 1.5em;
             cursor: pointer;
-            margin-left: 20px;
+            margin-left: 15px;
             transition: transform 0.3s;
         }
-        .account-btn:hover, .theme-toggle:hover {
+        .account-btn:hover, .theme-toggle:hover, .license-btn:hover {
             transform: rotate(20deg);
         }
         section {
-            margin: 60px 0;
+            margin: 50px 0;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.7s, transform 0.7s;
@@ -74,8 +74,8 @@
         }
         section h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 4em;
-            margin-bottom: 30px;
+            font-size: 3em;
+            margin-bottom: 25px;
             background: linear-gradient(90deg, #ff00ff, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -92,16 +92,16 @@
             max-width: 50%;
         }
         #home .hero-text p {
-            font-size: 1.5em;
-            margin: 20px 0;
+            font-size: 1.2em;
+            margin: 15px 0;
         }
         .tap-duck {
             background: #ff00ff;
             color: #e0e0ff;
-            padding: 15px 30px;
-            border-radius: 12px;
+            padding: 12px 25px;
+            border-radius: 10px;
             border: none;
-            font-size: 1.5em;
+            font-size: 1.2em;
             cursor: pointer;
             transition: transform 0.2s, background 0.3s;
         }
@@ -117,16 +117,16 @@
             transform: scale(0.95);
         }
         .tap-count {
-            font-size: 1.5em;
-            margin-top: 20px;
+            font-size: 1.2em;
+            margin-top: 15px;
             background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
+            padding: 8px;
             border-radius: 8px;
             display: inline-block;
         }
         .hero-image {
             width: 50%;
-            height: 400px;
+            height: 350px;
             background: url('https://img.icons8.com/emoji/512/duck.png') no-repeat center;
             background-size: contain;
             animation: float 3s ease-in-out infinite;
@@ -137,14 +137,14 @@
         }
         #gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
         }
         .gallery-item {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            height: 250px;
+            height: 200px;
             background-size: cover;
             background-position: center;
             transition: transform 0.3s;
@@ -152,24 +152,24 @@
         .gallery-item:hover {
             transform: scale(1.05);
         }
-        #manifest {
+        #manifest, #about-us, #about-project {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            padding: 30px;
+            padding: 25px;
             text-align: center;
         }
-        #manifest p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
+        #manifest p, #about-us p, #about-project p {
+            font-size: 1.2em;
+            margin-bottom: 15px;
         }
         #manifest ul {
             list-style: none;
-            margin: 30px 0;
+            margin: 25px 0;
         }
         #manifest ul li {
-            font-size: 1.5em;
-            margin: 15px 0;
+            font-size: 1.2em;
+            margin: 10px 0;
             padding-left: 40px;
             position: relative;
             transition: color 0.3s;
@@ -190,11 +190,37 @@
         }
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            font-size: 1.5em;
+            font-size: 1.2em;
+        }
+        .contact-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .contact-btn img {
+            width: 24px;
+            height: 24px;
+        }
+        .contact-btn:hover {
+            background: #00ffcc;
+            transform: scale(1.05);
         }
         /* Модальное окно для входа/регистрации */
         .modal {
@@ -211,29 +237,29 @@
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            padding: 30px;
-            width: 400px;
+            padding: 25px;
+            width: 350px;
             margin: 15% auto;
             text-align: center;
             color: #e0e0ff;
         }
         .modal-content input {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 8px;
+            margin: 8px 0;
             border-radius: 8px;
             border: none;
-            font-size: 1.2em;
+            font-size: 1em;
         }
         .modal-content button {
             background: #ff00ff;
             color: #e0e0ff;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 8px;
             border: none;
-            font-size: 1.2em;
+            font-size: 1em;
             cursor: pointer;
-            margin: 10px;
+            margin: 8px;
         }
         .modal-content button:hover {
             background: #00ffcc;
@@ -245,10 +271,10 @@
         }
         @media (max-width: 768px) {
             header h1 {
-                font-size: 2em;
+                font-size: 1.8em;
             }
             section h2 {
-                font-size: 2.5em;
+                font-size: 2em;
             }
             #home {
                 flex-direction: column;
@@ -258,26 +284,34 @@
                 max-width: 100%;
             }
             #home .hero-text p {
-                font-size: 1.2em;
+                font-size: 1em;
             }
             .tap-duck {
-                font-size: 1.2em;
+                font-size: 1em;
             }
             .tap-count {
-                font-size: 1.2em;
+                font-size: 1em;
             }
             .hero-image {
                 width: 80%;
-                height: 300px;
+                height: 250px;
             }
             .gallery-item {
-                height: 200px;
+                height: 150px;
             }
-            #manifest p, #manifest ul li, footer {
-                font-size: 1.2em;
+            #manifest p, #about-us p, #about-project p, #manifest ul li, footer {
+                font-size: 1em;
             }
             .modal-content {
                 width: 90%;
+            }
+            .contact-btn {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+            .contact-btn img {
+                width: 20px;
+                height: 20px;
             }
         }
     </style>
@@ -288,6 +322,7 @@
         <div>
             <button class="account-btn" aria-label="Аккаунт">👤</button>
             <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
+            <button class="license-btn" onclick="window.location.href='/license.html'" aria-label="Лицензия">📜</button>
         </div>
     </header>
 
@@ -309,26 +344,46 @@
             <div class="gallery-item" style="background-image: url('https://img.icons8.com/emoji/200/duck.png')"></div>
         </section>
 
+        <section id="about-us">
+            <h2>О нас</h2>
+            <p>Мы — Archi Capon и Лаура, создатели <strong>GUSEN DUCK IS</strong>! Archi — гениальный разработчик, который любит уток и крипту. Лаура — белая фурри-волчица, вдохновляющая Archi на новые идеи и поддерживающая утиный дух проекта. Вместе мы хотим сделать мир веселее и утинее! 🦆</p>
+        </section>
+
+        <section id="about-project">
+            <h2>О проекте</h2>
+            <p><strong>GUSEN DUCK IS</strong> — это утиная революция в мире крипты и игр! Наша цель — дать каждому возможность тапать уток, зарабатывать монеты и веселиться. Мы мечтаем создать целую утиную экосистему, где каждый тап приближает тебя к звёздам. Присоединяйся к нашей стае и стань частью будущего! 🚀</p>
+        </section>
+
         <section id="manifest">
             <h2>Утиный манифест</h2>
             <p>Мы — утки цифрового космоса! <strong>GUSEN DUCK IS</strong> — это революция.</p>
             <ul>
-                <li>Тапай и побеждай: каждый тап — монета!</li>
-                <li>Крипта твоя: 20% прибыли твои.</li>
-                <li>Стая — наша сила: зови друзей!</li>
-                <li>Будущее за нами: веселье и технологии.</li>
+                <li>Каждый тап — это шаг к звёздам!</li>
+                <li>Крипта принадлежит стае!</li>
+                <li>Веселье — наша главная ценность!</li>
+                <li>Будущее за утиной технологией!</li>
             </ul>
         </section>
     </div>
 
     <footer>
         <p>© 2025 Archi Capon & Лаура. С утиной страстью 🦆</p>
+        <div class="contact-links">
+            <a href="https://twitch.tv/archicapon" class="contact-btn" target="_blank">
+                <img src="https://img.icons8.com/color/24/twitch--v1.png" alt="Twitch">
+                Twitch
+            </a>
+            <a href="https://t.me/archicapon" class="contact-btn" target="_blank">
+                <img src="https://img.icons8.com/color/24/telegram-app.png" alt="Telegram">
+                Telegram
+            </a>
+        </div>
     </footer>
 
     <!-- Модальное окно для входа/регистрации -->
     <div class="modal" id="authModal">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn">×</span>
             <h2 id="modalTitle">Вход</h2>
             <input type="email" id="emailInput" placeholder="Email" required>
             <input type="password" id="passwordInput" placeholder="Пароль" required>
@@ -475,18 +530,4 @@
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        sections.forEach(section => observer.observe(section));
-
-        // PWA
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/service-worker.js')
-                .catch(err => console.log('Service Worker не работает: ', err));
-        }
-    </script>
-</body>
-</html>
+                if (entry.isIntersect
