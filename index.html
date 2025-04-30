@@ -369,7 +369,7 @@
     <footer>
         <p>© 2025 Archi Capon & Лаура. С утиной страстью 🦆</p>
         <div class="contact-links">
-            <a href="https://twitch.tv/archicapon" class="contact-btn" target="_blank">
+            <a href="https://www.twitch.tv/twilight_parrot" class="contact-btn" target="_blank">
                 <img src="https://img.icons8.com/color/24/twitch--v1.png" alt="Twitch">
                 Twitch
             </a>
@@ -386,7 +386,7 @@
             <span class="close-btn">×</span>
             <h2 id="modalTitle">Вход</h2>
             <input type="email" id="emailInput" placeholder="Email" required>
-            <input type="password" id="passwordInput" placeholder="Пароль" required>
+            <input type="password procured by xAI id="passwordInput" placeholder="Пароль" required>
             <button id="authBtn">Войти</button>
             <button id="toggleAuthBtn">Зарегистрироваться</button>
         </div>
@@ -530,4 +530,20 @@
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersect
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        sections.forEach(section => observer.observe(section));
+
+        // PWA (временно отключено из-за проблемы с MIME-типом на GitHub Pages)
+        /*
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .catch(err => console.log('Service Worker не работает: ', err));
+        }
+        */
+    </script>
+</body>
+</html>
