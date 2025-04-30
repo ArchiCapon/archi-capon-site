@@ -29,12 +29,10 @@
             background: linear-gradient(135deg, #f5f7fa, #e0e7ff);
             color: #1a1a3d;
         }
-
-        /* Контейнер */
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px;
         }
 
         /* Хедер */
@@ -46,30 +44,43 @@
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            margin-bottom: 40px;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         header h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2em;
-            color: inherit;
+            font-size: 2.5em;
         }
-        .theme-toggle {
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: inherit;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #00ffcc;
+        }
+        .account-btn, .theme-toggle {
             background: none;
             border: none;
             font-size: 1.5em;
             cursor: pointer;
             color: inherit;
+            margin-left: 20px;
         }
 
         /* Секции */
         section {
-            margin: 60px 0;
+            margin: 80px 0;
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.5s, transform 0.5s;
+            min-height: 60vh;
         }
         section.visible {
             opacity: 1;
@@ -77,14 +88,16 @@
         }
         section h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: inherit;
+            font-size: 3em;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #ff00ff, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         section p {
-            font-size: 1.1em;
+            font-size: 1.2em;
             line-height: 1.6;
-            max-width: 600px;
+            max-width: 800px;
         }
 
         /* Главная секция */
@@ -92,17 +105,11 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
-            min-height: 80vh;
+            gap: 60px;
+            min-height: 90vh;
         }
         #home .hero-text {
             max-width: 50%;
-        }
-        #home .hero-text h2 {
-            font-size: 3em;
-            background: linear-gradient(90deg, #ff00ff, #00ffcc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
         #home .hero-text p {
             margin: 20px 0;
@@ -110,10 +117,10 @@
         .tap-duck {
             background: #ff00ff;
             color: #e0e0ff;
-            padding: 15px 30px;
-            border-radius: 10px;
+            padding: 15px 40px;
+            border-radius: 12px;
             border: none;
-            font-size: 1.2em;
+            font-size: 1.3em;
             cursor: pointer;
             transition: transform 0.3s, background 0.3s;
         }
@@ -126,98 +133,198 @@
             background: #00ffcc;
         }
         .tap-count {
-            margin-top: 10px;
-            font-size: 1em;
-            color: inherit;
+            margin-top: 15px;
+            font-size: 1.2em;
         }
         .hero-image {
             width: 40%;
-            height: 300px;
-            background: url('https://img.icons8.com/emoji/300/duck.png') no-repeat center;
+            height: 400px;
+            background: url('https://img.icons8.com/emoji/400/duck.png') no-repeat center;
             background-size: contain;
             filter: drop-shadow(0 0 20px rgba(255, 0, 255, 0.5));
-            animation: float 3s infinite ease-in-out;
+            animation: float 4s infinite ease-in-out;
         }
         @keyframes float {
             0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-30px); }
             100% { transform: translateY(0); }
         }
 
-        /* Манифест */
-        .manifest {
+        /* Как это работает */
+        #how-it-works {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            padding: 40px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        /* Галерея */
+        #gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Манифест */
+        #manifest {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 60px;
             text-align: center;
         }
-        .manifest ul {
+        #manifest ul {
             list-style: none;
-            margin: 20px 0;
+            margin: 30px 0;
         }
-        .manifest ul li {
-            font-size: 1.2em;
-            margin: 15px 0;
-            padding-left: 30px;
+        #manifest ul li {
+            font-size: 1.3em;
+            margin: 20px 0;
+            padding-left: 40px;
             position: relative;
         }
-        .manifest ul li::before {
+        #manifest ul li::before {
             content: "🦆";
             position: absolute;
             left: 0;
+            font-size: 1.5em;
         }
 
-        /* EULA */
-        .eula {
+        /* Чат */
+        #chat {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .eula a {
-            color: #00ffcc;
-            text-decoration: none;
+        .chat-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
         }
-        .eula a:hover {
-            color: #ff00ff;
+        .chat-message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: inherit;
+        }
+        .chat-input button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background: #ff00ff;
+            color: #e0e0ff;
+            cursor: pointer;
+        }
+        .chat-input button:hover {
+            background: #00ffcc;
         }
 
-        /* Контакты */
-        .contact-form iframe {
+        /* Аккаунт */
+        .account-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 400px;
-            border-radius: 10px;
-            border: none;
-        }
-        .social-links {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 200;
             justify-content: center;
+            align-items: center;
         }
-        .social-links a {
-            color: #00ffcc;
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: color 0.3s;
+        .account-modal.active {
+            display: flex;
         }
-        .social-links a:hover {
-            color: #ff00ff;
+        .account-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+        .account-content h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        .account-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: inherit;
+        }
+        .account-content button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background: #ff00ff;
+            color: #e0e0ff;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .account-content button:hover {
+            background: #00ffcc;
         }
 
         /* Футер */
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 40px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             border-radius: 15px;
-            margin-top: 40px;
+            margin-top: 60px;
         }
         footer p {
-            font-size: 0.9em;
-            color: inherit;
+            font-size: 1em;
         }
         footer a {
             color: #00ffcc;
@@ -236,11 +343,14 @@
             animation: neon 2s infinite alternate;
         }
 
-        /* PWA и адаптивность */
+        /* Адаптивность */
         @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
             header {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
             }
             #home {
                 flex-direction: column;
@@ -251,13 +361,13 @@
             }
             #home .hero-image {
                 width: 80%;
-                height: 200px;
+                height: 250px;
             }
             section h2 {
                 font-size: 2em;
             }
-            .manifest, .eula {
-                padding: 20px;
+            #manifest, #chat {
+                padding: 30px;
             }
         }
     </style>
@@ -265,38 +375,77 @@
 <body class="dark-theme">
     <header>
         <h1>GUSEN DUCK IS</h1>
+        <div class="nav-links">
+            <a href="#home">Главная</a>
+            <a href="#how-it-works">Как это работает</a>
+            <a href="#manifest">Манифест</a>
+            <a href="#gallery">Галерея</a>
+            <a href="#chat">Чат</a>
+            <a href="#contact">Контакты</a>
+        </div>
+        <button class="account-btn" aria-label="Аккаунт">👤</button>
         <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
     </header>
+
+    <!-- Модал аккаунта -->
+    <div class="account-modal" id="accountModal">
+        <div class="account-content">
+            <h2>Вход / Регистрация</h2>
+            <input type="text" placeholder="Имя пользователя" id="username">
+            <input type="password" placeholder="Пароль" id="password">
+            <button onclick="login()">Войти</button>
+            <button onclick="register()">Зарегистрироваться</button>
+            <button onclick="document.getElementById('accountModal').classList.remove('active')">Закрыть</button>
+        </div>
+    </div>
 
     <div class="container">
         <section id="home">
             <div class="hero-text">
                 <h2>Тапай уток, властвуй в крипте!</h2>
-                <p>Добро пожаловать в **GUSEN DUCK IS** — игру, где каждый тап превращается в монеты, а монеты — в крипту. Присоединяйся к утиной революции 2025!</p>
+                <p>Добро пожаловать в **GUSEN DUCK IS** — игру, где каждый тап превращает уток в крипту. Зарабатывай 20% прибыли от обработки данных и стань частью утиной революции 2025!</p>
                 <button class="tap-duck neon-btn">Тапнуть утку!</button>
                 <p class="tap-count">Тапов: 0</p>
             </div>
             <div class="hero-image"></div>
         </section>
 
-        <section id="about">
-            <h2>Кто мы?</h2>
-            <p>Я — Archi Capon, он же twilight_parrot, стример и создатель **GUSEN DUCK IS**. Моя команда и я построили игру, где утки, крипта и веселье сливаются в цифровой космос. Тапай уток, зарабатывай 20% прибыли от обработки данных и стань частью нашей стаи!</p>
+        <section id="how-it-works">
+            <h2>Как это работает?</h2>
+            <div class="card">
+                <h3>Тапай уток</h3>
+                <p>Нажимай на уток в игре, чтобы зарабатывать монеты. Каждый тап — шаг к богатству!</p>
+            </div>
+            <div class="card">
+                <h3>Зарабатывай крипту</h3>
+                <p>Получай 20% прибыли от обработки игровых данных в виде криптовалюты.</p>
+            </div>
+            <div class="card">
+                <h3>Зови друзей</h3>
+                <p>Приглашай друзей через реферальную ссылку и получай 5% их монет!</p>
+            </div>
         </section>
 
-        <section id="manifest" class="manifest">
+        <section id="gallery">
+            <h2>Галерея уток</h2>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/250?text=NFT+Duck+1')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/250?text=NFT+Duck+2')"></div>
+            <div class="gallery-item" style="background-image: url('https://via.placeholder.com/250?text=NFT+Duck+3')"></div>
+        </section>
+
+        <section id="manifest">
             <h2>Утиный манифест</h2>
-            <p>Мы — утки цифровой арены, и наш тап разрывает звёзды! **GUSEN DUCK IS** — это больше, чем игра. Это революция.</p>
+            <p>Мы — утки цифрового космоса, и наш тап зажигает звёзды! **GUSEN DUCK IS** — это революция.</p>
             <ul>
-                <li>Тапай и властвуй: каждый тап — монета!</li>
-                <li>Крипта в твоих лапах: 20% прибыли твои.</li>
-                <li>Голуби не пройдут: утки правят!</li>
-                <li>Мы — стая: зови друзей, строй империю.</li>
+                <li>Тапай и побеждай: каждый тап — монета!</li>
+                <li>Крипта твоя: 20% прибыли твои.</li>
+                <li>Стая — наша сила: зови друзей!</li>
+                <li>Будущее за нами: веселье и технологии.</li>
             </ul>
             <button class="tap-duck neon-btn">Присоединиться к стае!</button>
         </section>
 
-        <section id="eula" class="eula">
+        <section id="eula">
             <h2>Лицензионное соглашение (EULA)</h2>
             <p>Устанавливая **GUSEN DUCK IS**, вы соглашаетесь:</p>
             <ul>
@@ -305,6 +454,17 @@
                 <li>Риски (нагрев, износ батареи) на вас.</li>
             </ul>
             <p><a href="[ссылка на PDF]" target="_blank">Полный текст EULA</a></p>
+        </section>
+
+        <section id="chat">
+            <h2>Утиный чат</h2>
+            <div class="chat-box" id="chatBox">
+                <div class="chat-message">Добро пожаловать в утиный чат! 🦆</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Напиши сообщение...">
+                <button onclick="sendMessage()">Отправить</button>
+            </div>
         </section>
 
         <section id="contact">
@@ -343,12 +503,14 @@
 
         // Тап-уточка
         let tapCount = 0;
-        document.querySelector('.tap-duck').addEventListener('click', () => {
-            tapCount++;
-            document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
+        document.querySelectorAll('.tap-duck').forEach(btn => {
+            btn.addEventListener('click', () => {
+                tapCount++;
+                document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
+            });
         });
 
-        // Анимация при скролле
+        // Анимация скролла
         const sections = document.querySelectorAll('section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -358,6 +520,39 @@
             });
         }, { threshold: 0.1 });
         sections.forEach(section => observer.observe(section));
+
+        // Аккаунт
+        const accountBtn = document.querySelector('.account-btn');
+        const accountModal = document.getElementById('accountModal');
+        accountBtn.addEventListener('click', () => {
+            accountModal.classList.add('active');
+        });
+
+        function login() {
+            const username = document.getElementById('username').value;
+            alert(`Вход: ${username}. Реализуйте бэкенд для аутентификации!`);
+        }
+
+        function register() {
+            const username = document.getElementById('username').value;
+            alert(`Регистрация: ${username}. Реализуйте бэкенд для регистрации!`);
+        }
+
+        // Чат
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (message) {
+                const chatBox = document.getElementById('chatBox');
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'chat-message';
+                messageDiv.textContent = `Гость: ${message} 🦆`;
+                chatBox.appendChild(messageDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+                input.value = '';
+                // Для реального чата подключите WebSocket, например, с Socket.IO
+            }
+        }
 
         // PWA
         if ('serviceWorker' in navigator) {
