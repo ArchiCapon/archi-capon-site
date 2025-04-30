@@ -3,83 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUSEN DUCK IS - Фантастическая утиная революция</title>
+    <meta name="description" content="GUSEN DUCK IS — тапай уток, зарабатывай крипту! Присоединяйся к утиной революции.">
+    <meta name="keywords" content="GUSEN DUCK IS, крипто-игра, утиная игра, Archi Capon">
+    <title>GUSEN DUCK IS - Утиная революция</title>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <style>
-        /* Основные стили */
+        /* Общие стили */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: background 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s;
         }
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #0a0a23 0%, #1a0033 100%);
+            background: linear-gradient(135deg, #0a0a23, #1a0033);
             color: #e0e0ff;
             overflow-x: hidden;
-            position: relative;
-        }
-        body.light-theme {
-            background: linear-gradient(135deg, #f0f0ff 0%, #e6e6ff 100%);
-            color: #1a0033;
         }
         .container {
             display: flex;
             min-height: 100vh;
-            position: relative;
         }
-        /* Переключатель темы */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #c71585, #4b0082);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 10px rgba(199, 21, 133, 0.5);
-            z-index: 1000;
-        }
-        body.light-theme .theme-toggle {
-            background: linear-gradient(135deg, #ffd700, #ff8c00);
-            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-        }
-        .theme-icon {
-            font-size: 24px;
-            color: #e0e0ff;
-            transition: transform 0.5s, opacity 0.5s;
-        }
-        body.light-theme .theme-icon {
-            color: #1a0033;
-        }
-        .theme-icon.moon {
-            transform: rotate(0deg);
-            opacity: 1;
-        }
-        .theme-icon.sun {
-            transform: rotate(90deg);
-            opacity: 1;
-        }
-        /* Боковое меню на ПК */
+
+        /* Боковое меню */
         .sidebar {
             width: 250px;
-            background: rgba(10, 0, 30, 0.9);
+            background: rgba(10, 0, 30, 0.95);
             padding: 20px;
             position: fixed;
             height: 100%;
             border-right: 2px solid #ff00ff;
             box-shadow: 0 0 15px rgba(255, 0, 255, 0.3);
-            transition: transform 0.3s ease;
-        }
-        body.light-theme .sidebar {
-            background: rgba(255, 255, 255, 0.9);
-            border-right: 2px solid #ff8c00;
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
         }
         .sidebar h1 {
             font-family: 'Orbitron', sans-serif;
@@ -88,10 +42,6 @@
             text-align: center;
             margin-bottom: 30px;
             text-shadow: 0 0 10px #00ffcc;
-        }
-        body.light-theme .sidebar h1 {
-            color: #ff8c00;
-            text-shadow: 0 0 10px #ff8c00;
         }
         .sidebar nav ul {
             list-style: none;
@@ -103,23 +53,16 @@
             color: #e0e0ff;
             text-decoration: none;
             font-size: 1.1em;
-            display: block;
             padding: 10px;
             border-radius: 5px;
+            display: block;
             transition: background 0.3s, transform 0.3s;
-        }
-        body.light-theme .sidebar nav ul li a {
-            color: #1a0033;
         }
         .sidebar nav ul li a:hover {
             background: #ff00ff;
             transform: translateX(10px);
-            box-shadow: 0 0 10px #ff00ff;
         }
-        body.light-theme .sidebar nav ul li a:hover {
-            background: #ff8c00;
-            box-shadow: 0 0 10px #ff8c00;
-        }
+
         /* Основной контент */
         .main-content {
             margin-left: 250px;
@@ -131,26 +74,17 @@
             justify-content: center;
         }
         .section {
-            background: rgba(20, 0, 50, 0.8);
+            background: rgba(20, 0, 50, 0.85);
             border: 1px solid #00ffcc;
             border-radius: 10px;
             padding: 20px;
             width: 300px;
             min-height: 400px;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        body.light-theme .section {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ff8c00;
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
+            transition: transform 0.3s;
         }
         .section:hover {
             transform: translateY(-10px);
-            box-shadow: 0 0 25px rgba(0, 255, 204, 0.5);
-        }
-        body.light-theme .section:hover {
-            box-shadow: 0 0 25px rgba(255, 140, 0, 0.5);
         }
         .section h2 {
             font-family: 'Orbitron', sans-serif;
@@ -159,59 +93,60 @@
             margin-bottom: 15px;
             text-shadow: 0 0 10px #ff00ff;
         }
-        body.light-theme .section h2 {
-            color: #ff8c00;
-            text-shadow: 0 0 10px #ff8c00;
-        }
         .section p {
             font-size: 1em;
             line-height: 1.6;
-            color: #e0e0ff;
         }
-        body.light-theme .section p {
-            color: #1a0033;
-        }
-        /* Изображения с переключением темы */
-        .theme-img {
+
+        /* Манифест и EULA */
+        .manifest-section, .eula-section {
+            background: rgba(20, 0, 50, 0.9);
+            border: 2px solid #ff00ff;
+            padding: 30px;
             width: 100%;
-            height: 150px;
-            border-radius: 5px;
-            margin: 10px 0;
-            object-fit: cover;
-            transition: opacity 0.3s;
-        }
-        .theme-img.dark {
-            display: block;
-        }
-        .theme-img.light {
-            display: none;
-        }
-        body.light-theme .theme-img.dark {
-            display: none;
-        }
-        body.light-theme .theme-img.light {
-            display: block;
-        }
-        /* Заглушка для изображений */
-        .placeholder-img {
-            width: 100%;
-            height: 150px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-            border: 1px solid #00ffcc;
-            margin: 10px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e0e0ff;
-            font-size: 0.9em;
+            max-width: 600px;
             text-align: center;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
         }
-        body.light-theme .placeholder-img {
-            background: rgba(0, 0, 0, 0.1);
-            border: 1px solid #ff8c00;
-            color: #1a0033;
+        .manifest-section h2, .eula-section h2 {
+            font-size: 2em;
+            color: #00ffcc;
+            animation: neon 2s infinite alternate;
         }
+        .manifest-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .manifest-section ul li {
+            font-size: 1.1em;
+            margin: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+        .manifest-section ul li:hover {
+            transform: scale(1.05);
+        }
+        .manifest-section ul li::before {
+            content: "🦆";
+            position: absolute;
+            left: 0;
+        }
+        .join-duck-btn {
+            background: #ff00ff;
+            color: #e0e0ff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .join-duck-btn:hover {
+            background: #00ffcc;
+            transform: scale(1.1);
+        }
+
         /* Карусель */
         .carousel {
             position: relative;
@@ -224,7 +159,7 @@
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-        .carousel-images .placeholder-img {
+        .carousel-images img {
             width: 100%;
             flex-shrink: 0;
         }
@@ -238,72 +173,13 @@
             padding: 5px 10px;
             cursor: pointer;
             font-size: 1.2em;
-            transition: background 0.3s;
-        }
-        body.light-theme .carousel-btn {
-            background: rgba(0, 0, 0, 0.3);
-            color: #ff8c00;
         }
         .carousel-btn:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        body.light-theme .carousel-btn:hover {
-            background: rgba(0, 0, 0, 0.5);
+            background: #ff00ff;
         }
         .carousel-btn.prev { left: 5px; }
         .carousel-btn.next { right: 5px; }
-        /* Контактная форма */
-        .contact-form iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            border-radius: 5px;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        body.light-theme .contact-form iframe {
-            background: rgba(0, 0, 0, 0.1);
-        }
-        .social-links a {
-            color: #00ffcc;
-            text-decoration: none;
-            margin: 0 10px;
-            font-size: 1em;
-            transition: color 0.3s;
-        }
-        body.light-theme .social-links a {
-            color: #ff8c00;
-        }
-        .social-links a:hover {
-            color: #ff00ff;
-            text-shadow: 0 0 10px #ff00ff;
-        }
-        body.light-theme .social-links a:hover {
-            color: #ffd700;
-            text-shadow: 0 0 10px #ffd700;
-        }
-        /* Кнопка скачивания */
-        .download-btn {
-            display: inline-block;
-            background: #ff00ff;
-            color: #e0e0ff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 10px 0;
-            transition: background 0.3s, transform 0.3s;
-        }
-        body.light-theme .download-btn {
-            background: #ff8c00;
-            color: #1a0033;
-        }
-        .download-btn:hover {
-            background: #00ffcc;
-            transform: scale(1.05);
-        }
-        body.light-theme .download-btn:hover {
-            background: #ffd700;
-        }
+
         /* Модальное окно */
         .modal {
             display: none;
@@ -317,9 +193,6 @@
             justify-content: center;
             align-items: center;
         }
-        body.light-theme .modal {
-            background: rgba(255, 255, 255, 0.9);
-        }
         .modal-content {
             background: rgba(20, 0, 50, 0.9);
             padding: 20px;
@@ -328,13 +201,7 @@
             max-width: 500px;
             width: 90%;
             border: 2px solid #ff00ff;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
             animation: pop 0.5s ease-in-out;
-        }
-        body.light-theme .modal-content {
-            background: rgba(255, 255, 255, 0.9);
-            border: 2px solid #ff8c00;
-            box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
         }
         @keyframes pop {
             0% { transform: scale(0.5); opacity: 0; }
@@ -343,21 +210,9 @@
         .modal-content h2 {
             font-family: 'Orbitron', sans-serif;
             color: #00ffcc;
-            margin-top: 0;
             text-shadow: 0 0 10px #00ffcc;
         }
-        body.light-theme .modal-content h2 {
-            color: #ff8c00;
-            text-shadow: 0 0 10px #ff8c00;
-        }
-        .modal-content p {
-            color: #e0e0ff;
-            line-height: 1.6;
-        }
-        body.light-theme .modal-content p {
-            color: #1a0033;
-        }
-        .modal-content .close-btn, .modal-content .join-btn {
+        .modal-content .join-btn, .modal-content .close-btn {
             background: #ff00ff;
             color: #e0e0ff;
             border: none;
@@ -365,296 +220,18 @@
             border-radius: 5px;
             cursor: pointer;
             margin: 10px;
-            transition: background 0.3s;
-        }
-        body.light-theme .modal-content .close-btn,
-        body.light-theme .modal-content .join-btn {
-            background: #ff8c00;
-            color: #1a0033;
         }
         .modal-content .join-btn {
             background: #00ffcc;
             color: #0a0a23;
         }
-        body.light-theme .modal-content .join-btn {
-            background: #ffd700;
-        }
-        .modal-content .close-btn:hover, .modal-content .join-btn:hover {
+        .modal-content .join-btn:hover, .modal-content .close-btn:hover {
             background: #ff66ff;
         }
-        body.light-theme .modal-content .close-btn:hover,
-        body.light-theme .modal-content .join-btn:hover {
-            background: #ffd700;
-        }
-        /* Анимации для текста */
-        .highlight {
-            background: rgba(0, 255, 204, 0.1);
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-            border: 1px solid #00ffcc;
-        }
-        body.light-theme .highlight {
-            background: rgba(255, 140, 0, 0.1);
-            border: 1px solid #ff8c00;
-        }
-        .highlight ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .highlight li {
-            margin: 5px 0;
-            position: relative;
-            padding-left: 20px;
-        }
-        .highlight li::before {
-            content: "➔";
-            position: absolute;
-            left: 0;
-            color: #ff00ff;
-        }
-        body.light-theme .highlight li::before {
-            color: #ff8c00;
-        }
-        /* Футер */
-        footer {
-            background: rgba(10, 0, 30, 0.9);
-            color: #e0e0ff;
-            padding: 15px;
-            text-align: center;
-            border-top: 2px solid #00ffcc;
-            margin-top: 20px;
-            position: relative;
-        }
-        body.light-theme footer {
-            background: rgba(255, 255, 255, 0.9);
-            color: #1a0033;
-            border-top: 2px solid #ff8c00;
-        }
-        footer a {
-            color: #ff00ff;
-            text-decoration: none;
-        }
-        body.light-theme footer a {
-            color: #ff8c00;
-        }
-        footer a:hover {
-            color: #00ffcc;
-            text-shadow: 0 0 10px #00ffcc;
-        }
-        body.light-theme footer a:hover {
-            color: #ffd700;
-            text-shadow: 0 0 10px #ffd700;
-        }
-        /* Пространство для рекламы */
-        .ad-space {
-            background: rgba(20, 0, 50, 0.8);
-            border: 1px solid #ff00ff;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            width: 100%;
-            max-width: 800px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.2);
-        }
-        body.light-theme .ad-space {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #ff8c00;
-            box-shadow: 0 0 15px rgba(255, 140, 0, 0.2);
-        }
-        .ad-space h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.5em;
-            color: #00ffcc;
-            margin-bottom: 15px;
-            text-shadow: 0 0 10px #00ffcc;
-        }
-        body.light-theme .ad-space h2 {
-            color: #ff8c00;
-            text-shadow: 0 0 10px #ff8c00;
-        }
-        .ad-space .placeholder-ad {
-            width: 100%;
-            height: 100px;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-            border: 1px solid #ff00ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #e0e0ff;
-            font-size: 1em;
-        }
-        body.light-theme .ad-space .placeholder-ad {
-            background: rgba(0, 0, 0, 0.1);
-            border: 1px solid #ff8c00;
-            color: #1a0033;
-        }
-        /* Неоновые эффекты */
-        .neon-text {
-            animation: neon 2s infinite alternate;
-        }
-        @keyframes neon {
-            0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff; }
-            100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
-        }
-        body.light-theme .neon-text {
-            animation: neon-light 2s infinite alternate;
-        }
-        @keyframes neon-light {
-            0% { text-shadow: 0 0 5px #ff8c00, 0 0 10px #ff8c00, 0 0 15px #ff8c00; }
-            100% { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700; }
-        }
-        /* Адаптивный дизайн для мобильных */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                border-right: none;
-                border-bottom: 2px solid #ff00ff;
-                transform: none;
-            }
-            body.light-theme .sidebar {
-                border-bottom: 2px solid #ff8c00;
-            }
-            .sidebar nav ul {
-                display: flex;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            .sidebar nav ul li {
-                margin: 10px;
-            }
-            .sidebar nav ul li a {
-                font-size: 0.9em;
-                padding: 5px 10px;
-            }
-            .main-content {
-                margin-left: 0;
-                padding: 20px;
-                flex-direction: column;
-                align-items: center;
-            }
-            .section {
-                width: 100%;
-                max-width: 350px;
-                min-height: auto;
-            }
-            .placeholder-img, .theme-img {
-                height: 120px;
-            }
-            .carousel {
-                max-width: 100%;
-            }
-            .contact-form iframe {
-                height: 400px;
-            }
-            .modal-content {
-                width: 85%;
-                padding: 15px;
-            }
-            .modal-content h2 {
-                font-size: 1.5em;
-            }
-            .modal-content p {
-                font-size: 0.9em;
-            }
-            .ad-space {
-                width: 90%;
-            }
-            .theme-toggle {
-                top: 10px;
-                right: 10px;
-                width: 35px;
-                height: 35px;
-            }
-        }
-        /* Дополнительные анимации */
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        .pulse {
-            animation: pulse 3s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        /* Дополнительные стили для эффектов */
-        .section::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: calc(100% + 20px);
-            height: calc(100% + 20px);
-            background: radial-gradient(circle, rgba(255, 0, 255, 0.1) 0%, transparent 70%);
-            z-index: -1;
-            opacity: 0.5;
-        }
-        body.light-theme .section::before {
-            background: radial-gradient(circle, rgba(255, 140, 0, 0.1) 0%, transparent 70%);
-        }
-        /* Декоративные линии */
-        .divider {
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, transparent, #00ffcc, transparent);
-            margin: 20px 0;
-        }
-        body.light-theme .divider {
-            background: linear-gradient(to right, transparent, #ff8c00, transparent);
-        }
-        /* Анимация для кнопок */
-        .btn-glow {
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-glow::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 0, 255, 0.3), transparent);
-            animation: shine 3s infinite;
-        }
-        body.light-theme .btn-glow::after {
-            background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.3), transparent);
-        }
-        @keyframes shine {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-        /* Эффект для заголовков */
-        h2::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 2px;
-            background: #ff00ff;
-            margin: 5px auto 0;
-            box-shadow: 0 0 10px #ff00ff;
-        }
-        body.light-theme h2::after {
-            background: #ff8c00;
-            box-shadow: 0 0 10px #ff8c00;
-        }
-        /* Эффект парящих частиц */
-        .particles {
-            position: absolute;
+
+        /* Волчьи эффекты */
+        .wolf-particles {
+            position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
@@ -662,53 +239,98 @@
             pointer-events: none;
             z-index: -1;
         }
-        .particle {
+        .duck-particle {
             position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #00ffcc;
-            border-radius: 50%;
-            animation: drift 10s infinite;
-            opacity: 0.5;
+            width: 20px;
+            height: 20px;
+            background: url('https://img.icons8.com/emoji/20/duck.png');
+            animation: fly 10s infinite;
+            opacity: 0.6;
         }
-        body.light-theme .particle {
-            background: #ff8c00;
+        .duck-particle:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+        .duck-particle:nth-child(2) { top: 25%; left: 50%; animation-delay: 2s; }
+        .duck-particle:nth-child(3) { top: 35%; left: 80%; animation-delay: 4s; }
+        @keyframes fly {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 100px); }
+            100% { transform: translate(0, 0); }
         }
-        .particle:nth-child(1) { top: 10%; left: 15%; animation-delay: 0s; }
-        .particle:nth-child(2) { top: 20%; left: 30%; animation-delay: 1s; }
-        .particle:nth-child(3) { top: 30%; left: 45%; animation-delay: 2s; }
-        .particle:nth-child(4) { top: 40%; left: 60%; animation-delay: 3s; }
-        .particle:nth-child(5) { top: 50%; left: 75%; animation-delay: 4s; }
-        @keyframes drift {
-            0% { transform: translate(0, 0); opacity: 0.5; }
-            50% { transform: translate(50px, 50px); opacity: 0.8; }
-            100% { transform: translate(0, 0); opacity: 0.5; }
+
+        /* Футер */
+        footer {
+            background: rgba(10, 0, 30, 0.95);
+            color: #e0e0ff;
+            padding: 15px;
+            text-align: center;
+            border-top: 2px solid #00ffcc;
+            margin-top: 20px;
+        }
+        footer a {
+            color: #ff00ff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #00ffcc;
+        }
+
+        /* Анимации */
+        @keyframes neon {
+            0% { text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff; }
+            100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: relative;
+                border-right: none;
+                border-bottom: 2px solid #ff00ff;
+            }
+            .sidebar nav ul {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .main-content {
+                margin-left: 0;
+                padding: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            .section, .manifest-section, .eula-section {
+                width: 100%;
+                max-width: 350px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Переключатель темы -->
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <span class="theme-icon moon">🌙</span>
-    </div>
-
     <!-- Модальное окно -->
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
             <h2 class="neon-text">Добро пожаловать в GUSEN DUCK IS!</h2>
-            <p>Это утиная революция в мире крипто-гейминга! Тапай уток, зарабатывай монеты и стань частью будущего. Готов присоединиться? 🦆</p>
-            <button class="join-btn btn-glow" onclick="document.getElementById('welcomeModal').style.display='none'">Присоединиться!</button>
-            <button class="close-btn btn-glow" onclick="window.location.href='about:blank'">Закрыть</button>
+            <p>Тапай уток, зарабатывай крипту и стань частью утиной революции! Соглашаясь, вы принимаете <a href="#eula">EULA</a>.</p>
+            <button class="join-btn" onclick="document.getElementById('welcomeModal').style.display='none'">Согласен, тапать уток!</button>
+            <button class="close-btn" onclick="window.location.href='about:blank'">Отказаться</button>
         </div>
     </div>
 
-    <!-- Декоративные элементы -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+    <!-- Волчьи эффекты -->
+    <div class="wolf-particles">
+        <div class="duck-particle"></div>
+        <div class="duck-particle"></div>
+        <div class="duck-particle"></div>
     </div>
 
     <div class="container">
@@ -721,6 +343,8 @@
                     <li><a href="#story">История</a></li>
                     <li><a href="#project">Проект</a></li>
                     <li><a href="#plans">Планы</a></li>
+                    <li><a href="#manifest">Манифест</a></li>
+                    <li><a href="#eula">EULA</a></li>
                     <li><a href="#contact">Контакты</a></li>
                 </ul>
             </nav>
@@ -731,62 +355,70 @@
             <div class="section fade-in" id="bio">
                 <h2>Кто я такой?</h2>
                 <a href="https://twitch.tv/twilight_parrot">
-                    <img src="https://i.imgur.com/9aXbZ2T.png" alt="Archi Capon Dark Theme" class="theme-img dark">
-                    <img src="https://i.imgur.com/5kYvN3m.png" alt="Archi Capon Light Theme" class="theme-img light">
+                    <div class="placeholder-img">Archi Capon</div>
                 </a>
-                <p>Я — Archi Capon, мастер цифровых миров и создатель <strong>GUSEN DUCK IS</strong>. Раньше я был известен как twilight_parrot, покоряя Twitch своими стримами. Теперь я визионер, соединяющий веселье и криптовалюту в одной игре!</p>
-                <p>Моя история началась с кодинга на старом компе и мечты создать что-то эпичное. Сегодня я строю утиную империю, где каждый тап приближает к богатству. Мой девиз: "Утки, код, победа!"</p>
+                <p>Я — Archi Capon, он же twilight_parrot, стример и визионер **GUSEN DUCK IS**. Моя миссия — объединить уток, крипту и веселье в одной игре!</p>
             </div>
 
             <div class="section fade-in" id="story">
                 <h2>Наша история</h2>
                 <a href="https://x.com/ArchiCapon">
-                    <img src="https://i.imgur.com/JzL8pQw.png" alt="Our Story" class="theme-img">
+                    <div class="placeholder-img">Утиная сага</div>
                 </a>
-                <p>Всё началось с мечты создать игру, которая перевернёт мир. Я, Archi Capon, объединил силы с единомышленниками, чтобы воплотить идею <strong>GUSEN DUCK IS</strong> — игры, где можно тапать уток и зарабатывай криптовалюту.</p>
-                <p>Мы создали прототип, который стал началом утиной революции. Этот сайт — наша презентация проекта. Мы хотим, чтобы вы узнали о <strong>GUSEN DUCK IS</strong> и присоединились к нашему движению. Вместе мы создаём будущее, где веселье и технологии идут рука об руку!</p>
+                <p>**GUSEN DUCK IS** — это мечта, ставшая реальностью. Мы создали игру, где каждый тап приносит монеты, а монеты — свободу.</p>
             </div>
 
             <div class="section fade-in" id="project">
                 <h2>GUSEN DUCK IS</h2>
                 <div class="carousel">
                     <div class="carousel-images" id="carouselImages">
-                        <div class="placeholder-img">Image Placeholder</div>
-                        <div class="placeholder-img">Image Placeholder</div>
-                        <div class="placeholder-img">Image Placeholder</div>
+                        <img src="https://via.placeholder.com/280x150?text=Duck+1" alt="Duck 1">
+                        <img src="https://via.placeholder.com/280x150?text=Duck+2" alt="Duck 2">
+                        <img src="https://via.placeholder.com/280x150?text=Duck+3" alt="Duck 3">
                     </div>
                     <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
                     <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
                 </div>
-                <p><strong>GUSEN DUCK IS</strong> — это революция! Тапай по уткам в круглой арене, зарабатывай монеты и конвертируй их в реальные деньги. В фоне твой девайс "обрабатывает данные", а ты получаешь до 20% прибыли в крипте.</p>
-                <div class="highlight">
-                    <p><strong>Почему это круто:</strong></p>
-                    <ul>
-                        <li>Тапай уток, избегай голубей — копи монеты!</li>
-                        <li>Зови друзей и получай 5% от их активности.</li>
-                        <li>Лидерборд для утиных королей.</li>
-                        <li>Баннеры с нашими проектами.</li>
-                    </ul>
-                </div>
-                <a href="https://play.google.com/store/apps/details?id=com.gusenduckis" class="download-btn btn-glow">Скачать игру (скоро!)</a>
+                <p>Тапай уток, избегай голубей, копи крипту! **GUSEN DUCK IS** — игра, где ты зарабатываешь 20% от обработки данных.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.gusenduckis" class="join-duck-btn">Скачать (скоро!)</a>
             </div>
 
             <div class="section fade-in" id="plans">
                 <h2>Наши планы</h2>
                 <a href="#contact">
-                    <div class="placeholder-img">Image Placeholder</div>
+                    <div class="placeholder-img">Будущее</div>
                 </a>
-                <p>Мы не останавливаемся на достигнутом! Наша цель — сделать <strong>GUSEN DUCK IS</strong> самой популярной игрой в мире крипто-гейминга.</p>
-                <p>В планах: запуск на Google Play и App Store, новые уровни с боссами-голубями, интеграция NFT-уток и создание утиного сообщества. Следи за обновлениями и стань частью утиной империи!</p>
+                <p>NFT-утки, боссы-голуби, Google Play и App Store — мы летим к звёздам! Присоединяйся к утиной стае!</p>
+            </div>
+
+            <div class="section fade-in manifest-section" id="manifest">
+                <h2>Утиный манифест</h2>
+                <p>Мы — утки цифровой арены, и наш тап разрывает звёзды! **GUSEN DUCK IS** — это революция, где каждый игрок — герой.</p>
+                <ul>
+                    <li>Тапай и властвуй: каждый тап — монета!</li>
+                    <li>Крипта в твоих лапах: 20% прибыли твои.</li>
+                    <li>Голуби не пройдут: утки правят!</li>
+                    <li>Мы — стая: зови друзей, строй империю.</li>
+                </ul>
+                <a href="#contact" class="join-duck-btn">Присоединиться к стае!</a>
+            </div>
+
+            <div class="section fade-in eula-section" id="eula">
+                <h2>Лицензионное соглашение (EULA)</h2>
+                <p>Добро пожаловать в **GUSEN DUCK IS**! Устанавливая игру, вы соглашаетесь:</p>
+                <ul>
+                    <li>Игра использует до 20% ресурсов устройства для обработки данных.</li>
+                    <li>Вы получаете 20% дохода в крипте.</li>
+                    <li>Риски (нагрев, износ батареи) на вас.</li>
+                </ul>
+                <a href="[ссылка на PDF]" class="join-duck-btn" target="_blank">Полный текст EULA</a>
             </div>
 
             <div class="section fade-in" id="contact">
                 <h2>Связаться</h2>
-                <p>Хочешь говорить про уток, крипту или идеи? Пиши!</p>
+                <p>Готов тапать уток? Пиши!</p>
                 <div class="contact-form">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">
-                        Загрузка формы...
-                    </iframe>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">Загрузка...</iframe>
                 </div>
                 <div class="social-links">
                     <a href="https://t.me/archicapon">✈️ Telegram</a> |
@@ -797,66 +429,39 @@
         </div>
     </div>
 
-    <!-- Пространство для рекламы -->
-    <section class="ad-space">
-        <h2>Реклама</h2>
-        <div class="placeholder-ad">Ad Placeholder</div>
-    </section>
-
     <footer>
-        <p>© 2025 Archi Capon. Создано с утиной страстью 🦆 | <a href="#manifest">Утиный манифест</a></p>
+        <p>© 2025 Archi Capon & Лаура. С утиной страстью 🦆 | <a href="#manifest">Манифест</a> | <a href="#eula">EULA</a></p>
     </footer>
 
     <script>
-        // Показ модального окна
+        // Модальное окно
         window.onload = function() {
-            const modal = document.getElementById('welcomeModal');
-            if (modal) {
-                modal.style.display = 'flex';
-            }
+            document.getElementById('welcomeModal').style.display = 'flex';
         };
-
-        // Переключение темы
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.querySelector('.theme-icon');
-            body.classList.toggle('light-theme');
-            if (body.classList.contains('light-theme')) {
-                icon.textContent = '☀️';
-                icon.classList.remove('moon');
-                icon.classList.add('sun');
-            } else {
-                icon.textContent = '🌙';
-                icon.classList.remove('sun');
-                icon.classList.add('moon');
-            }
-        }
 
         // Карусель
         let currentSlide = 0;
-        const carouselImages = document.getElementById('carouselImages');
-        const slides = document.querySelectorAll('.carousel-images .placeholder-img');
+        const slides = document.querySelectorAll('.carousel-images img');
         const totalSlides = slides.length;
 
         function moveCarousel(direction) {
-            if (!carouselImages || totalSlides === 0) return;
             currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            const offset = -currentSlide * 100;
-            carouselImages.style.transform = `translateX(${offset}%)`;
+            document.getElementById('carouselImages').style.transform = `translateX(${-currentSlide * 100}%)`;
         }
 
-        // Плавный скролл к секциям
+        // Автопрокрутка
+        setInterval(() => moveCarousel(1), 5000);
+
+        // Плавный скролл
         document.querySelectorAll('.sidebar a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 50,
-                        behavior: 'smooth'
-                    });
-                }
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
