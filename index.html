@@ -57,6 +57,7 @@
             border-radius: 5px;
             display: block;
             transition: background 0.3s, transform 0.3s;
+            cursor: pointer;
         }
         .sidebar nav ul li a:hover {
             background: #ff00ff;
@@ -81,10 +82,13 @@
             width: 300px;
             min-height: 400px;
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.3);
-            transition: transform 0.3s;
+            transition: opacity 0.5s, transform 0.5s;
+            display: none;
         }
-        .section:hover {
-            transform: translateY(-10px);
+        .section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
         .section h2 {
             font-family: 'Orbitron', sans-serif;
@@ -98,6 +102,25 @@
             line-height: 1.6;
         }
 
+        /* Кнопки */
+        .join-duck-btn {
+            background: #ff00ff;
+            color: #e0e0ff;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background 0.3s, transform 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+        .join-duck-btn:hover {
+            background: #00ffcc;
+            transform: scale(1.1);
+        }
+
         /* Манифест и EULA */
         .manifest-section, .eula-section {
             background: rgba(20, 0, 50, 0.9);
@@ -107,11 +130,6 @@
             max-width: 600px;
             text-align: center;
             box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
-        }
-        .manifest-section h2, .eula-section h2 {
-            font-size: 2em;
-            color: #00ffcc;
-            animation: neon 2s infinite alternate;
         }
         .manifest-section ul {
             list-style: none;
@@ -133,18 +151,34 @@
             position: absolute;
             left: 0;
         }
-        .join-duck-btn {
-            background: #ff00ff;
-            color: #e0e0ff;
-            padding: 15px 30px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
+
+        /* Контакты */
+        .contact-form {
+            overflow: hidden;
         }
-        .join-duck-btn:hover {
-            background: #00ffcc;
-            transform: scale(1.1);
+        .contact-form iframe {
+            width: 100%;
+            height: 300px;
+            border-radius: 5px;
+        }
+        .social-links {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .social-links a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-size: 1em;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #ff00ff;
+            text-shadow: 0 0 10px #ff00ff;
         }
 
         /* Карусель */
@@ -229,6 +263,32 @@
             background: #ff66ff;
         }
 
+        /* Анимация загрузки */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .loading-duck {
+            width: 50px;
+            height: 50px;
+            background: url('https://img.icons8.com/emoji/50/duck.png');
+            animation: spin 1s infinite linear;
+            border-radius: 50%;
+            box-shadow: 0 0 20px #ff00ff;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         /* Волчьи эффекты */
         .wolf-particles {
             position: fixed;
@@ -279,7 +339,7 @@
             100% { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
         }
         .fade-in {
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out;
         }
         @keyframes fadeIn {
             0% { opacity: 0; transform: translateY(20px); }
@@ -312,6 +372,10 @@
                 width: 100%;
                 max-width: 350px;
             }
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -320,10 +384,15 @@
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
             <h2 class="neon-text">Добро пожаловать в GUSEN DUCK IS!</h2>
-            <p>Тапай уток, зарабатывай крипту и стань частью утиной революции! Соглашаясь, вы принимаете <a href="#eula">EULA</a>.</p>
-            <button class="join-btn" onclick="document.getElementById('welcomeModal').style.display='none'">Согласен, тапать уток!</button>
+            <p>Тапай уток, зарабатывай крипту! Соглашаясь, вы принимаете <a href="#eula">EULA</a>.</p>
+            <button class="join-btn" onclick="document.getElementById('welcomeModal').style.display='none'">Согласен, тапать!</button>
             <button class="close-btn" onclick="window.location.href='about:blank'">Отказаться</button>
         </div>
+    </div>
+
+    <!-- Анимация загрузки -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-duck"></div>
     </div>
 
     <!-- Волчьи эффекты -->
@@ -339,13 +408,13 @@
             <h1 class="neon-text">GUSEN DUCK IS</h1>
             <nav>
                 <ul>
-                    <li><a href="#bio">Кто я</a></li>
-                    <li><a href="#story">История</a></li>
-                    <li><a href="#project">Проект</a></li>
-                    <li><a href="#plans">Планы</a></li>
-                    <li><a href="#manifest">Манифест</a></li>
-                    <li><a href="#eula">EULA</a></li>
-                    <li><a href="#contact">Контакты</a></li>
+                    <li><a data-section="bio">Кто я</a></li>
+                    <li><a data-section="story">История</a></li>
+                    <li><a data-section="project">Проект</a></li>
+                    <li><a data-section="plans">Планы</a></li>
+                    <li><a data-section="manifest">Манифест</a></li>
+                    <li><a data-section="eula">EULA</a></li>
+                    <li><a data-section="contact">Контакты</a></li>
                 </ul>
             </nav>
         </div>
@@ -357,7 +426,8 @@
                 <a href="https://twitch.tv/twilight_parrot">
                     <div class="placeholder-img">Archi Capon</div>
                 </a>
-                <p>Я — Archi Capon, он же twilight_parrot, стример и визионер **GUSEN DUCK IS**. Моя миссия — объединить уток, крипту и веселье в одной игре!</p>
+                <p>Я — Archi Capon, он же twilight_parrot, стример и визионер **GUSEN DUCK IS**. Моя миссия — объединить уток, крипту и веселье!</p>
+                <a href="#contact" class="join-duck-btn">Связаться</a>
             </div>
 
             <div class="section fade-in" id="story">
@@ -365,7 +435,8 @@
                 <a href="https://x.com/ArchiCapon">
                     <div class="placeholder-img">Утиная сага</div>
                 </a>
-                <p>**GUSEN DUCK IS** — это мечта, ставшая реальностью. Мы создали игру, где каждый тап приносит монеты, а монеты — свободу.</p>
+                <p>**GUSEN DUCK IS** — мечта, ставшая реальностью. Мы создали игру, где каждый тап приносит крипту.</p>
+                <a href="#project" class="join-duck-btn">Узнать больше</a>
             </div>
 
             <div class="section fade-in" id="project">
@@ -379,7 +450,7 @@
                     <button class="carousel-btn prev" onclick="moveCarousel(-1)">❮</button>
                     <button class="carousel-btn next" onclick="moveCarousel(1)">❯</button>
                 </div>
-                <p>Тапай уток, избегай голубей, копи крипту! **GUSEN DUCK IS** — игра, где ты зарабатываешь 20% от обработки данных.</p>
+                <p>Тапай уток, избегай голубей, копи крипту! Зарабатывай 20% от обработки данных.</p>
                 <a href="https://play.google.com/store/apps/details?id=com.gusenduckis" class="join-duck-btn">Скачать (скоро!)</a>
             </div>
 
@@ -388,12 +459,13 @@
                 <a href="#contact">
                     <div class="placeholder-img">Будущее</div>
                 </a>
-                <p>NFT-утки, боссы-голуби, Google Play и App Store — мы летим к звёздам! Присоединяйся к утиной стае!</p>
+                <p>NFT-утки, боссы-голуби, Google Play — мы летим к звёздам!</p>
+                <a href="#manifest" class="join-duck-btn">К манифесту</a>
             </div>
 
             <div class="section fade-in manifest-section" id="manifest">
                 <h2>Утиный манифест</h2>
-                <p>Мы — утки цифровой арены, и наш тап разрывает звёзды! **GUSEN DUCK IS** — это революция, где каждый игрок — герой.</p>
+                <p>Мы — утки цифровой арены, и наш тап разрывает звёзды! **GUSEN DUCK IS** — революция!</p>
                 <ul>
                     <li>Тапай и властвуй: каждый тап — монета!</li>
                     <li>Крипта в твоих лапах: 20% прибыли твои.</li>
@@ -407,7 +479,7 @@
                 <h2>Лицензионное соглашение (EULA)</h2>
                 <p>Добро пожаловать в **GUSEN DUCK IS**! Устанавливая игру, вы соглашаетесь:</p>
                 <ul>
-                    <li>Игра использует до 20% ресурсов устройства для обработки данных.</li>
+                    <li>Игра использует до 20% ресурсов устройства.</li>
                     <li>Вы получаете 20% дохода в крипте.</li>
                     <li>Риски (нагрев, износ батареи) на вас.</li>
                 </ul>
@@ -421,8 +493,8 @@
                     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHHIraVFbtxBziOql3oPoKoUfIn_P0X89zcZniSHK9M3ds7Q/viewform?embedded=true" frameborder="0">Загрузка...</iframe>
                 </div>
                 <div class="social-links">
-                    <a href="https://t.me/archicapon">✈️ Telegram</a> |
-                    <a href="https://twitch.tv/twilight_parrot">🎮 Twitch</a> |
+                    <a href="https://t.me/archicapon">✈️ Telegram</a>
+                    <a href="https://twitch.tv/twilight_parrot">🎮 Twitch</a>
                     <a href="https://x.com/ArchiCapon">🐦 X.com</a>
                 </div>
             </div>
@@ -437,6 +509,7 @@
         // Модальное окно
         window.onload = function() {
             document.getElementById('welcomeModal').style.display = 'flex';
+            showSection('bio'); // Показать первый раздел
         };
 
         // Карусель
@@ -452,16 +525,34 @@
         // Автопрокрутка
         setInterval(() => moveCarousel(1), 5000);
 
-        // Плавный скролл
+        // Анимация переходов
+        const sections = document.querySelectorAll('.section');
+        const loadingOverlay = document.getElementById('loadingOverlay');
+
+        function showSection(sectionId) {
+            loadingOverlay.style.display = 'flex';
+            sections.forEach(section => {
+                section.classList.remove('active');
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+            });
+
+            setTimeout(() => {
+                const targetSection = document.getElementById(sectionId);
+                targetSection.classList.add('active');
+                targetSection.style.opacity = '1';
+                targetSection.style.transform = 'translateY(0)';
+                loadingOverlay.style.display = 'none';
+                window.scrollTo({ top: targetSection.offsetTop - 50, behavior: 'smooth' });
+            }, 1000);
+        }
+
+        // Навигация
         document.querySelectorAll('.sidebar a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                window.scrollTo({
-                    top: targetElement.offsetTop - 50,
-                    behavior: 'smooth'
-                });
+                const sectionId = this.getAttribute('data-section');
+                showSection(sectionId);
             });
         });
     </script>
