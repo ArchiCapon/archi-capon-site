@@ -17,6 +17,7 @@
         body {
             font-family: 'Inter', sans-serif;
             transition: background 0.3s, color 0.3s;
+            overflow-x: hidden;
         }
         .dark-theme {
             background: linear-gradient(135deg, #0a0a23, #1a0033);
@@ -27,37 +28,45 @@
             color: #1a1a3d;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
         }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 30px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
+            border-radius: 20px;
             position: sticky;
             top: 0;
+            z-index: 10;
         }
         header h1 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2em;
+            font-size: 3em;
+            background: linear-gradient(90deg, #ff00ff, #00ffcc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .theme-toggle {
+        .account-btn, .theme-toggle {
             background: none;
             border: none;
-            font-size: 1.5em;
+            font-size: 2em;
             cursor: pointer;
-            margin-left: 10px;
+            margin-left: 20px;
+            transition: transform 0.3s;
+        }
+        .account-btn:hover, .theme-toggle:hover {
+            transform: rotate(20deg);
         }
         section {
-            margin: 40px 0;
+            margin: 60px 0;
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s, transform 0.5s;
+            transform: translateY(30px);
+            transition: opacity 0.7s, transform 0.7s;
         }
         section.visible {
             opacity: 1;
@@ -65,29 +74,36 @@
         }
         section h2 {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: 4em;
+            margin-bottom: 30px;
             background: linear-gradient(90deg, #ff00ff, #00ffcc);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: center;
         }
         #home {
             display: flex;
             align-items: center;
-            gap: 20px;
-            min-height: 70vh;
+            gap: 40px;
+            min-height: 80vh;
+            position: relative;
         }
         #home .hero-text {
             max-width: 50%;
         }
+        #home .hero-text p {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
         .tap-duck {
             background: #ff00ff;
             color: #e0e0ff;
-            padding: 10px 20px;
-            border-radius: 8px;
+            padding: 15px 30px;
+            border-radius: 12px;
             border: none;
-            font-size: 1.2em;
+            font-size: 1.5em;
             cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
         }
         .light-theme .tap-duck {
             background: #1a1a3d;
@@ -95,56 +111,145 @@
         }
         .tap-duck:hover {
             background: #00ffcc;
+            transform: scale(1.1);
+        }
+        .tap-duck:active {
+            transform: scale(0.95);
+        }
+        .tap-count {
+            font-size: 1.5em;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            display: inline-block;
         }
         .hero-image {
-            width: 40%;
-            height: 200px;
-            background: url('https://img.icons8.com/emoji/200/duck.png') no-repeat center;
+            width: 50%;
+            height: 400px;
+            background: url('https://img.icons8.com/emoji/512/duck.png') no-repeat center;
             background-size: contain;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
         #gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
         .gallery-item {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 10px;
-            height: 150px;
+            border-radius: 15px;
+            height: 250px;
             background-size: cover;
             background-position: center;
+            transition: transform 0.3s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
         }
         #manifest {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 20px;
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
+        }
+        #manifest p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
         }
         #manifest ul {
             list-style: none;
-            margin: 20px 0;
+            margin: 30px 0;
         }
         #manifest ul li {
-            font-size: 1.1em;
-            margin: 10px 0;
-            padding-left: 30px;
+            font-size: 1.5em;
+            margin: 15px 0;
+            padding-left: 40px;
             position: relative;
+            transition: color 0.3s;
+        }
+        #manifest ul li:hover {
+            color: #00ffcc;
         }
         #manifest ul li::before {
             content: "🦆";
             position: absolute;
             left: 0;
+            font-size: 1.5em;
+            animation: spin 2s infinite linear;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            border-radius: 10px;
+            border-radius: 15px;
+            font-size: 1.5em;
+        }
+        /* Модальное окно для входа/регистрации */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 100;
+        }
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            width: 400px;
+            margin: 15% auto;
+            text-align: center;
+            color: #e0e0ff;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: none;
+            font-size: 1.2em;
+        }
+        .modal-content button {
+            background: #ff00ff;
+            color: #e0e0ff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .modal-content button:hover {
+            background: #00ffcc;
+        }
+        .close-btn {
+            float: right;
+            font-size: 1.5em;
+            cursor: pointer;
         }
         @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            section h2 {
+                font-size: 2.5em;
+            }
             #home {
                 flex-direction: column;
                 text-align: center;
@@ -152,8 +257,27 @@
             #home .hero-text {
                 max-width: 100%;
             }
+            #home .hero-text p {
+                font-size: 1.2em;
+            }
+            .tap-duck {
+                font-size: 1.2em;
+            }
+            .tap-count {
+                font-size: 1.2em;
+            }
             .hero-image {
                 width: 80%;
+                height: 300px;
+            }
+            .gallery-item {
+                height: 200px;
+            }
+            #manifest p, #manifest ul li, footer {
+                font-size: 1.2em;
+            }
+            .modal-content {
+                width: 90%;
             }
         }
     </style>
@@ -162,6 +286,7 @@
     <header>
         <h1>GUSEN DUCK IS</h1>
         <div>
+            <button class="account-btn" aria-label="Аккаунт">👤</button>
             <button class="theme-toggle" aria-label="Переключить тему">🌙</button>
         </div>
     </header>
@@ -200,7 +325,111 @@
         <p>© 2025 Archi Capon & Лаура. С утиной страстью 🦆</p>
     </footer>
 
+    <!-- Модальное окно для входа/регистрации -->
+    <div class="modal" id="authModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modalTitle">Вход</h2>
+            <input type="email" id="emailInput" placeholder="Email" required>
+            <input type="password" id="passwordInput" placeholder="Пароль" required>
+            <button id="authBtn">Войти</button>
+            <button id="toggleAuthBtn">Зарегистрироваться</button>
+        </div>
+    </div>
+
+    <!-- Tawk.to чат -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/68118b71a321df190d7af034/1iq28hdim';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+
     <script>
+        // Модальное окно
+        const modal = document.getElementById('authModal');
+        const accountBtn = document.querySelector('.account-btn');
+        const closeBtn = document.querySelector('.close-btn');
+        const authBtn = document.getElementById('authBtn');
+        const toggleAuthBtn = document.getElementById('toggleAuthBtn');
+        const modalTitle = document.getElementById('modalTitle');
+        let isLoginMode = true;
+
+        accountBtn.addEventListener('click', () => {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                localStorage.removeItem('currentUser');
+                accountBtn.textContent = '👤';
+                updateTapCount(0);
+            } else {
+                modal.style.display = 'block';
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        toggleAuthBtn.addEventListener('click', () => {
+            isLoginMode = !isLoginMode;
+            modalTitle.textContent = isLoginMode ? 'Вход' : 'Регистрация';
+            authBtn.textContent = isLoginMode ? 'Войти' : 'Зарегистрироваться';
+            toggleAuthBtn.textContent = isLoginMode ? 'Зарегистрироваться' : 'Войти';
+        });
+
+        authBtn.addEventListener('click', () => {
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            if (!email || !password) {
+                alert('Пожалуйста, заполните все поля!');
+                return;
+            }
+
+            if (isLoginMode) {
+                // Вход
+                const user = localStorage.getItem(`user_${email}`);
+                if (!user) {
+                    alert('Пользователь не найден! Зарегистрируйтесь.');
+                    return;
+                }
+                const userData = JSON.parse(user);
+                if (userData.password !== password) {
+                    alert('Неверный пароль!');
+                    return;
+                }
+                localStorage.setItem('currentUser', email);
+                accountBtn.textContent = `👤 ${email}`;
+                modal.style.display = 'none';
+                updateTapCount(userData.tapCount || 0);
+            } else {
+                // Регистрация
+                if (localStorage.getItem(`user_${email}`)) {
+                    alert('Пользователь с таким email уже существует!');
+                    return;
+                }
+                const userData = { email, password, tapCount: 0 };
+                localStorage.setItem(`user_${email}`, JSON.stringify(userData));
+                localStorage.setItem('currentUser', email);
+                accountBtn.textContent = `👤 ${email}`;
+                modal.style.display = 'none';
+                updateTapCount(0);
+            }
+        });
+
+        // Проверка текущего пользователя при загрузке
+        const currentUser = localStorage.getItem('currentUser');
+        if (currentUser) {
+            const userData = JSON.parse(localStorage.getItem(`user_${currentUser}`));
+            accountBtn.textContent = `👤 ${currentUser}`;
+            updateTapCount(userData.tapCount || 0);
+        }
+
         // Тема
         const themeToggle = document.querySelector('.theme-toggle');
         const body = document.body;
@@ -217,13 +446,28 @@
         }
 
         // Тапы
-        let tapCount = localStorage.getItem('tapCount') || 0;
-        document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
+        let tapCount = 0;
+        function updateTapCount(count) {
+            tapCount = count;
+            document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
+        }
         document.querySelectorAll('.tap-duck').forEach(btn => {
             btn.addEventListener('click', () => {
+                const currentUser = localStorage.getItem('currentUser');
+                if (!currentUser) {
+                    alert('Пожалуйста, войдите или зарегистрируйтесь!');
+                    modal.style.display = 'block';
+                    return;
+                }
                 tapCount++;
                 document.querySelector('.tap-count').textContent = `Тапов: ${tapCount}`;
-                localStorage.setItem('tapCount', tapCount);
+                const userData = JSON.parse(localStorage.getItem(`user_${currentUser}`));
+                userData.tapCount = tapCount;
+                localStorage.setItem(`user_${currentUser}`, JSON.stringify(userData));
+
+                // Звук кряканья
+                const quack = new Audio('https://www.myinstants.com/media/sounds/duck-quack.mp3');
+                quack.play();
             });
         });
 
